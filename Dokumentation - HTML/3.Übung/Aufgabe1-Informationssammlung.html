@@ -2,9 +2,46 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Aufgabe 1 - Informationssammlung</title>
 </head>
 <body>
-
+	<p>
+		a) Tracking <br /> Hier wird das Surfverhalten von Nutzern verfolgt,
+		um z.B. Werbung zielgerechter zu platzieren. Dies kann bspw. ueber
+		Google Analytics und/oder Cookies realisiert werden. Als Gegenmaßnahme
+		kann hier eine Whitelist fuer Cookies eingestellt, bzw. Nur Cookies von
+		Erst- und besuchten Drittseiten akzeptiert werden. <br />b) Cross
+		Site Scripting (XSS)<br /> Ein Angreifer kapert eine Website und
+		platziert im HTML Code ein boesartiges Skript, welches vom User
+		ausgefuehrt wird. Quelle: <a>https://www.acunetix.com/websitesecurity/cross-site-scripting/</a><br />
+		c) Phishing <br /> Beim Phishing wird versucht, den User zur
+		Preisgabe von persoenlichen Informationen zu ueberreden. Man versucht,
+		eine moeglichst authentisch aussehende Website zu erstellen, die wie
+		bspw. Google.de aussieht, aber auf einer anderen Domain gehostet wird.
+		Ziel ist es, dass der User im Irrglauben, dass er auf der richtigen
+		Seite ist, seine Login-Daten oder andere Daten angibt. Anzeichen
+		hierfuer sind oft Schreibfehler in der URL oder bspw. .to-Domains.
+		Abhilfe schafft hier HTTPS, da hier die Echtheit der Seite
+		sichergestellt werden kann. Dem User wird diese bei vielen Browsern
+		ueber ein gruenen Schloss in der URL Zeile angezeigt.<br />d) Werbung<br />Werbung
+		ist der einfachste Weg, einem User boesartigen Code unterzujubeln.
+		Diese kann mit einem AdBlocker beseitigt werden. Hier entsteht ein
+		Zielkonflikt fuer Content-Anbieter, die sich einerseits ueber Werbung
+		finanzieren muessen, aber andererseits nicht fuer ausgelieferte Viren an
+		User verantwortlich sein wollen.<br />e) HTTP / unverschluesselte
+		Kommunikation <br /> f) C++ memory leaks <br />g) integrierter
+		PDF-Reader<br />
+		http://www.heise.de/security/meldung/Web-Browser-Kritische-Sicherheitsluecke-in-Firefox-geschlossen-2774450.html
+		<br /> h) javascript ??? <br />i) Gespeicherte Passwoerter<br />
+		User speichern Passwoerter oft in der vom Firefox zur Verfuegung
+		gestellten Passwort-speichern-Funktion. Wenn ich als Angreifer nun
+		Zugang zu jener Datenbank bekomme, habe ich volle Kontrolle ueber alle
+		Accounts des Users.<br />j) prefetching<br />Beim prefetching koennen
+		fuer Links auf Websiten ein flag gesetzt werden, dass den Browser dazu
+		auffordert, die Zielseite zu laden, bevor sie der User aufruft.
+		Erstens kann auf diesen Seiten boesartiger Code liegen, zweitens kann
+		man in Deutschland u.U. sich somi strafbar machen. Dies kann ueber
+		about:config --> network.prefetch-next auf false deaktiviert werden.
+	</p>
 </body>
 </html>
