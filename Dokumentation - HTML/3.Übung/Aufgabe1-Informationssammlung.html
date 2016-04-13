@@ -6,52 +6,50 @@
 <title>Aufgabe 1 - Informationssammlung</title>
 </head>
 <body>
-	<p>
-	<div>
-		a) Tracking <br /> Hier wird das Surfverhalten von Nutzern verfolgt,
-		um z.B. Werbung zielgerechter zu platzieren. Dies kann bspw. ueber
-		Google Analytics und/oder Cookies realisiert werden. Als Gegenmaßnahme
-		kann hier eine Whitelist fuer Cookies eingestellt, bzw. Nur Cookies
-		von Erst- und besuchten Drittseiten akzeptiert werden. <br />b) Cross
-		Site Scripting (XSS)<br /> Ein Angreifer kapert eine Website und
-		platziert im HTML Code ein boesartiges Skript, welches vom User
-		ausgefuehrt wird.<a
-			href="https://www.acunetix.com/websitesecurity/cross-site-scripting/">Quelle</a><br />
-		c) Phishing <br /> Beim Phishing wird versucht, den User zur
-		Preisgabe von persoenlichen Informationen zu ueberreden. Man versucht,
-		eine moeglichst authentisch aussehende Website zu erstellen, die wie
-		bspw. Google.de aussieht, aber auf einer anderen Domain gehostet wird.
-		Ziel ist es, dass der User im Irrglauben, dass er auf der richtigen
-		Seite ist, seine Login-Daten oder andere Daten angibt. Anzeichen
-		hierfuer sind oft Schreibfehler in der URL oder bspw. .to-Domains.
-		Abhilfe schafft hier HTTPS, da hier die Echtheit der Seite
-		sichergestellt werden kann. Dem User wird diese bei vielen Browsern
-		ueber ein gruenen Schloss in der URL Zeile angezeigt.<br />d) Werbung<br />Werbung
-		ist der einfachste Weg, einem User boesartigen Code unterzujubeln.
-		Diese kann mit einem AdBlocker beseitigt werden. Hier entsteht ein
-		Zielkonflikt fuer Content-Anbieter, die sich einerseits ueber Werbung
-		finanzieren muessen, aber andererseits nicht fuer ausgelieferte Viren
-		an User verantwortlich sein wollen.<br />e) HTTP / unverschluesselte
-		Kommunikation <br /> f) man in the middle Angriff<br />Bei einem
-		mitm-Angriff gebe ich mich als Empfaenger aus und fange so den
-		Userinput ab. Um meine Glaubwuerdigkeit zu beweisen, leite ich alle
-		Requests des Users dennoch an den entsprechenden Server durch. Ich
-		kann mich z.B. als google-Server ausgeben. Sobald sich der User
-		einloggen will, schneide ich seine Login-Daten mit und gebe diese an
-		den echten google-Server weiter. <br />g) integrierter PDF-Reader<br />
-		<a
-			href="http://www.heise.de/security/meldung/Web-Browser-Kritische-Sicherheitsluecke-in-Firefox-geschlossen-2774450.html">Quelle</a>
-		<br /> h) Javascript ???<br />i) Gespeicherte Passwoerter<br />
-		User speichern Passwoerter oft in der vom Firefox zur Verfuegung
-		gestellten Passwort-speichern-Funktion. Wenn ich als Angreifer nun
-		Zugang zu jener Datenbank bekomme, habe ich volle Kontrolle ueber alle
-		Accounts des Users.<br />j) prefetching<br />Beim prefetching
-		koennen fuer Links auf Websiten ein flag gesetzt werden, dass den
-		Browser dazu auffordert, die Zielseite zu laden, bevor sie der User
-		aufruft. Erstens kann auf diesen Seiten boesartiger Code liegen,
-		zweitens kann man in Deutschland u.U. sich somi strafbar machen. Dies
-		kann ueber about:config --> network.prefetch-next auf false
-		deaktiviert werden.
-	</p></div>
+	<div class="text">
+		<p>
+			<b>a) Tracking</b> <br /> Hier wird das Surfverhalten von Nutzern
+			verfolgt, um z.B. Werbung zielgerechter zu platzieren. Dies kann
+			bspw. ueber Google Analytics und/oder Cookies realisiert werden. Als
+			Gegenmaßnahme kann hier eine Whitelist fuer Cookies eingestellt, bzw.
+			Nur Cookies von Erst- und besuchten Drittseiten akzeptiert werden. <br />
+			<b>b) Cross Site Scripting (XSS)</b><br /> Ein Angreifer kapert eine
+			Website und platziert im HTML Code ein boesartiges Skript, welches
+			vom User ausgefuehrt wird.<a
+				href="https://www.acunetix.com/websitesecurity/cross-site-scripting/">Quelle</a><br />
+			c)<br />
+			<b>d) Werbung</b><br />Werbung ist ein weiterer Weg, einem User
+			boesartigen Code einzuschleusen. Diese kann mit einem AdBlocker
+			beseitigt werden. Hier entsteht ein Zielkonflikt fuer
+			Content-Anbieter, die sich einerseits ueber Werbung finanzieren
+			muessen, aber andererseits nicht fuer ausgelieferte Viren an User
+			verantwortlich sein wollen.<br />
+			<b>e) HTTP / unverschluesselte Kommunikation</b> <br /> <b>f)
+				man in the middle Angriff</b><br />Bei einem mitm-Angriff gebe ich mich
+			als Empfaenger aus und fange so den Userinput ab. Um meine
+			Glaubwuerdigkeit zu beweisen, leite ich alle Requests des Users
+			dennoch an den entsprechenden Server durch. Ich kann mich z.B. als
+			google-Server ausgeben. Sobald sich der User einloggen will, schneide
+			ich seine Login-Daten mit und gebe diese an den echten google-Server
+			weiter. <br />
+			<b>g) integrierter PDF-Reader</b><br /> <a
+				href="http://www.heise.de/security/meldung/Web-Browser-Kritische-Sicherheitsluecke-in-Firefox-geschlossen-2774450.html">Quelle</a>
+			<br /> <b>h) Javascript</b> ???<br />
+			<b>i) Gespeicherte Passwoerter</b><br /> User speichern Passwoerter
+			oft in der vom Firefox zur Verfuegung gestellten
+			Passwort-speichern-Funktion. Wenn ich als Angreifer nun Zugang zu
+			jener Datenbank bekomme, habe ich volle Kontrolle ueber alle Accounts
+			des Users.<br />
+			<b>j) prefetching</b><br />Beim prefetching koennen fuer Links auf
+			Websiten ein flag gesetzt werden, dass den Browser dazu auffordert,
+			die Zielseite zu laden, bevor sie der User aufruft. Erstens kann auf
+			diesen Seiten boesartiger Code liegen, zweitens kann man in
+			Deutschland u.U. sich somi strafbar machen. Dies kann ueber
+			about:config --> network.prefetch-next auf false deaktiviert werden.
+		</p>
+	</div>
+	<div id="Navigation">
+		<a href="Index3.html" id="link-up">Zurück zum Index</a>
+	</div>
 </body>
 </html>
