@@ -8,46 +8,122 @@
 </head>
 <body>
 	<div class="text">
-		<p>
-			a) Mit Firewalls kann man den Datentraffic in einem Netzwerk
-			beobachten und kontrollieren. Die Standrd-Firewall-Lösung unter Linux
-			heißt "netfilter", welche seit Kernel-Version 2.4 in Linux integriert
-			ist. Eine weitere Software namens "iptables" wird häufig dazu
-			verwendet, um netfilter zu konfigurieren.<br />Mit iptables lassen
-			sich Regeln (rules), Ketten (chains) und Tabellen (tables) für die
-			Firewallkonfiguration erstellen. Regeln sind die Glieder einer Kette.
-			Tabellen enthalten Ketten.<br /> Durch <b>Regeln</b> lässt sich bei
-			jedem eintreffenden Paket entscheiden, wie weiter mit ihm verfahren
-			wird. Das eintreffende Paket wird auf bestimmte Parameter überprüft,
-			und bei Übereinstimmung der Parameter mit den Vorgaben der Regel wird
-			eine Aktion ausgeführt. Falls es zu keiner Übereinstimmung kommt wird
-			die <i>policy</i> der Kette angewendet.<br /> <br /> <br /> <b>policies
-				noch erklären? accept, reject, log etc</b><br /> <br /> Mehrere Regeln
-			bilden eine <b>Kette</b>. Das Paket durchläuft alle Regeln der Kette
-			nacheinander. Sobald eine Regel erfüllt ist, ergo ihre Parameter mit
-			der des Paketes übereinstimmen, wird die Bearbeitung der Kette
-			abgebrochen bzw. beendet. Die <i>Default</i>-Tabelle enthält drei
-			Ketten: INPUT, OUTPUT, FORWARD. Die <i>NAT</i>-Tabelle enthält drei
-			weitere, andere Ketten: PREROUTING, POSTROUTING, OUTPUT.<br />Die
-			Ketten in den <b>Tabellen</b> enthalten standardmäßig keine Regeln.<br />
-			Mit dem Befehl <br />
-			<code># sudo iptables -nvL</code>
-			<br /> können die aktuellen regeln der Default-Tabelle eingesehen
-			werden. können die aktuellen Regeln der <i>Default</i>-Tabelle
-			eingesehen werden.
-		<figure>
-			<img src="../Images/screenshot_no_iptable_rules.png" alt="no rules"
-				style="width: 633px; height: 653px;">
-			<figcaption>Abb. 1: Keine Regeln in der
-				Standardkonfiguration</figcaption>
-		</figure>
+		a) Mit Firewalls kann man den Datentraffic in einem Netzwerk
+		beobachten und kontrollieren. Die Standrd-Firewall-Lösung unter Linux
+		heißt "netfilter", welche seit Kernel-Version 2.4 in Linux integriert
+		ist. Eine weitere Software namens "iptables" wird häufig dazu
+		verwendet, um netfilter zu konfigurieren.<br />Mit iptables lassen
+		sich Regeln (rules), Ketten (chains) und Tabellen (tables) für die
+		Firewallkonfiguration erstellen. Regeln sind die Glieder einer Kette.
+		Tabellen enthalten Ketten.<br /> Durch <b>Regeln</b> lässt sich bei
+		jedem eintreffenden Paket entscheiden, wie weiter mit ihm verfahren
+		wird. Das eintreffende Paket wird auf bestimmte Parameter überprüft,
+		und bei Übereinstimmung der Parameter mit den Vorgaben der Regel wird
+		eine Aktion ausgeführt. Falls es zu keiner Übereinstimmung kommt wird
+		die <i>policy</i> der Kette angewendet.<br /> <br />Man
+		unterscheidet folgende Regeln:
+		<dl>
+			<dt>
+				<i>ACCEPT</i>
+			</dt>
+			<dd>Erlaubt das Routing des Paketes.</dd>
+			<dt>
+				<i>DROP</i>
+			</dt>
+			<dd>Das Routen des Paketes wird abgelehnt. Weiter passiert
+				nichts, der Sender weiß also nicht, was mit seinem Paket passiert.</dd>
+			<dt>
+				<i>REJECT</i>
+			</dt>
+			<dd>Das Routen des Paketes wird abgelehnt, der Sender erhält
+				aber eine Error-Meldung.</dd>
+			<dt>
+				<i>QUEUE</i>
+			</dt>
+			<dd>Die Pakete werden für andere Paket-Filter-Anwendungen
+				gesammelt.</dd>
+			<dt>
+				<i>RETURN</i>
+			</dt>
+			<dd>Das Durchlaufen der aktuellen Kette wird abgebrochen. Falls
+				eine "Vater"-Kette durchlaufen wird, wird an der Stelle
+				weitergemacht, an der die "Kind"-Kette anfing.</dd>
+		</dl>
+		<br /> <br /> Mehrere Regeln bilden eine <b>Kette</b>. Das Paket
+		durchläuft alle Regeln der Kette nacheinander. Sobald eine Regel
+		erfüllt ist, ergo ihre Parameter mit der des Paketes übereinstimmen,
+		wird die Bearbeitung der Kette abgebrochen bzw. beendet.<br /> <b>Tabellen</b>
+		bestehen aus verschiedenen Ketten. Man unterscheidet die Tabellen <br />
+		<dl>
+			<dt>
+				<i>filter</i>
+			</dt>
+			<dd>Die Standard-Tabelle. Sie beinhaltet die Ketten INPUT (für
+				eingehende, an diesen Rechner addressierten Pakete), FORWARD (für
+				Pakete, die durch diesen Rechner geroutet werden) und OUPUT (für
+				Pakete, die an diesem Rechner erstellt wurden).</dd>
+			<dt>
+				<i>nat</i>
+			</dt>
+			<dd>Wird aufgerufen, wenn ein Paket eine TCP-Verbindung aufbauen
+				will. Sie enthält die Ketten PREROUTING (für abgeänderte Pakete
+				direkt beim eintreffen), POSTROUTING (für abgeänderte Pakete
+				unmittelbar bevor sie den Rechner verlassen) und OUTPUT (für Pakete,
+				die an diesem Rechner erstellt wurden und ihn verlassen). Abgeändert
+				heißt hier, dass sie übersetzt wurden. NAT-Tabellen verändern, je
+				nach Typ, die Eingans- bzw Ausgangsadresse.</dd>
+			<dt>
+				<i>mangle</i>
+			</dt>
+			<dd>Mangle wird für spezielle Paket-Umschreibung benutzt. Die
+				Ketten PREROUTING (für eintreffende, abgeänderte Pakete vor dem
+				Routing-Vorgang), OUTPUT (für Pakete, die auf diesem Rechner
+				erstellt wurden, ebenfalls vor dem Routing-Vorgang), INPUT (für
+				Pakete, die geroutet werden, bevor sie an den Prozess gesendet
+				werden), FORWARD (für Pakete, die nach der initialen
+				Routing-Entscheidung, aber vor der unmittelbar letzten "gemangelt"
+				werden) und POSTROUTING (für abgeänderte Pakete, die den Rechner
+				gerade verlassen) sind in ihr enthalten.</dd>
+			<dt>
+				<i>raw</i>
+			</dt>
+			<dd>Wird für Ausnahmeregelungen vom Verbindungs-Tracking in
+				Kombination mit dem NOTRACK-Ziel benutzt. Hat die höchse Priorität,
+				womit es vor allen anderen Tabellen aufgerufen wird. Sie beinhaltet
+				die Ketten PREROUTING (für alle ankommenden Pakete, unabhängig vom
+				verwendetet Netzwerk-Interface) und OUTPUT (für Pakete, die auf dem
+				Rechner erstellt wurden).</dd>
+			<dt>security</dt>
+			<dd>Wird für MAC-Netzwerk-Regeln gebraucht und nach der
+				filter-Tabelle aufgerufen. Sie beinhaltet die Ketten INPUT (für
+				Pakete, die an die Box addressiert sind), OUTPUT (für abgeänderte
+				Pakete, die an diesem Rechner erstellt wurden und noch nicht
+				geroutet wurden) und FORWARD (für abgeänderte Pakete, die durch die
+				Box geroutet werden)</dd>
+		</dl>
+		<br /> Mit dem Befehl <br />
+		<code># sudo iptables -nvL</code>
+		<br /> können die aktuellen regeln der Default-Tabelle eingesehen
+		werden.<img src="../Images/screenshot_no_iptable_rules.png"
+			alt="no rules" style="width: 633px; height: 653px;"><br />Abb.
+		1: Keine Regeln in der Standardkonfiguration <br /> <br /> Mit dem
+		Befehl<br />
+		<code># sudo iptables -N chainName</code>
+		lässt sich eine benutzer-definierte Kette erstellen. Mit ihnen werden
+		Ports in der Firewall geöffnet. Es empfiehlt sich, zwei Ketten für die
+		beiden Kommunikationsarten TCP und UDP zu erstellen.<br />Die policy
+		der FORWARD-Kette soll Pakete durchlassen. Dies geschieht mit<br />
+		<code># sudo iptables -P FORWARD DROP</code>
 		<br /> <br /> <br /> <a
 			href="https://wiki.archlinux.org/index.php/simple_stateful_firewall">Quelle
 			1</a><br /> <a
 			href="https://de.wikibooks.org/wiki/Linux-Praxisbuch:_Linux-Firewall_mit_IP-Tables">Quelle
 			2</a><br /> <a href="https://wiki.archlinux.org/index.php/iptables">Quelle
-			3</a>
-		</p>
+			3</a> <a href="http://www.iptables.info/en/structure-of-iptables.html">Quelle
+			4</a> <a href="http://www.linuxnix.com/iptables-in-linux-explained/">Quelle
+			5</a><a
+			href="https://www.frozentux.net/iptables-tutorial/chunkyhtml/x4625.html">Quelle
+			6</a>
 	</div>
 	<div id="Navigation">
 		<a href="Index2.html" id="link-up">Zurück zum Index</a>
