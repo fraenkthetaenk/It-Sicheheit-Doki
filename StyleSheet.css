@@ -11,3 +11,9 @@ div.text {
 a {
 	color: grey;
 }
+
+dt {
+	margin-left: 2%;
+	display: list-item;
+	list-style-type: disc;
+}
