@@ -9,8 +9,44 @@
 <body>
 	<div class="text">
 		<p>
-			<a href="http://netfilter.org">quelle zum recherchieren</a> <a
-				href="https://de.wikibooks.org/wiki/Linux-Praxisbuch:_Linux-Firewall_mit_IP-Tables"></a>
+			a) Mit Firewalls kann man den Datentraffic in einem Netzwerk
+			beobachten und kontrollieren. Die Standrd-Firewall-Lösung unter Linux
+			heißt "netfilter", welche seit Kernel-Version 2.4 in Linux integriert
+			ist. Eine weitere Software namens "iptables" wird häufig dazu
+			verwendet, um netfilter zu konfigurieren.<br />Mit iptables lassen
+			sich Regeln (rules), Ketten (chains) und Tabellen (tables) für die
+			Firewallkonfiguration erstellen. Regeln sind die Glieder einer Kette.
+			Tabellen enthalten Ketten.<br /> Durch <b>Regeln</b> lässt sich bei
+			jedem eintreffenden Paket entscheiden, wie weiter mit ihm verfahren
+			wird. Das eintreffende Paket wird auf bestimmte Parameter überprüft,
+			und bei Übereinstimmung der Parameter mit den Vorgaben der Regel wird
+			eine Aktion ausgeführt. Falls es zu keiner Übereinstimmung kommt wird
+			die <i>policy</i> der Kette angewendet.<br /> <br /> <br /> <b>policies
+				noch erklären? accept, reject, log etc</b><br /> <br /> Mehrere Regeln
+			bilden eine <b>Kette</b>. Das Paket durchläuft alle Regeln der Kette
+			nacheinander. Sobald eine Regel erfüllt ist, ergo ihre Parameter mit
+			der des Paketes übereinstimmen, wird die Bearbeitung der Kette
+			abgebrochen bzw. beendet. Die <i>Default</i>-Tabelle enthält drei
+			Ketten: INPUT, OUTPUT, FORWARD. Die <i>NAT</i>-Tabelle enthält drei
+			weitere, andere Ketten: PREROUTING, POSTROUTING, OUTPUT.<br />Die
+			Ketten in den <b>Tabellen</b> enthalten standardmäßig keine Regeln.<br />
+			Mit dem Befehl <br />
+			<code># sudo iptables -nvL</code>
+			<br /> können die aktuellen regeln der Default-Tabelle eingesehen
+			werden. können die aktuellen Regeln der <i>Default</i>-Tabelle
+			eingesehen werden.
+		<figure>
+			<img src="../Images/screenshot_no_iptable_rules.png" alt="no rules"
+				style="width: 633px; height: 653px;">
+			<figcaption>Abb. 1: Keine Regeln in der
+				Standardkonfiguration</figcaption>
+		</figure>
+		<br /> <br /> <br /> <a
+			href="https://wiki.archlinux.org/index.php/simple_stateful_firewall">Quelle
+			1</a><br /> <a
+			href="https://de.wikibooks.org/wiki/Linux-Praxisbuch:_Linux-Firewall_mit_IP-Tables">Quelle
+			2</a><br /> <a href="https://wiki.archlinux.org/index.php/iptables">Quelle
+			3</a>
 		</p>
 	</div>
 	<div id="Navigation">
