@@ -17,3 +17,10 @@ dt {
 	display: list-item;
 	list-style-type: disc;
 }
+
+code {
+	background-color: #FFFFDD;
+	border: outset;
+	border-color: black;
+	border-width: 1px;
+}
