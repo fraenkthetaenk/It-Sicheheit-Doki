@@ -49,10 +49,10 @@
 				eine "Vater"-Kette durchlaufen wird, wird an der Stelle
 				weitergemacht, an der die "Kind"-Kette anfing.</dd>
 		</dl>
-		<br /> <br /> Mehrere Regeln bilden eine <b>Kette</b>. Das Paket
-		durchläuft alle Regeln der Kette nacheinander. Sobald eine Regel
-		erfüllt ist, ergo ihre Parameter mit der des Paketes übereinstimmen,
-		wird die Bearbeitung der Kette abgebrochen bzw. beendet.<br /> <b>Tabellen</b>
+		<br /> Mehrere Regeln bilden eine <b>Kette</b>. Das Paket durchläuft
+		alle Regeln der Kette nacheinander. Sobald eine Regel erfüllt ist,
+		ergo ihre Parameter mit der des Paketes übereinstimmen, wird die
+		Bearbeitung der Kette abgebrochen bzw. beendet.<br /> <b>Tabellen</b>
 		bestehen aus verschiedenen Ketten. Man unterscheidet die Tabellen <br />
 		<dl>
 			<dt>
@@ -109,21 +109,45 @@
 		1: Keine Regeln in der Standardkonfiguration <br /> <br /> Mit dem
 		Befehl<br />
 		<code># sudo iptables -N chainName</code>
-		lässt sich eine benutzer-definierte Kette erstellen. Mit ihnen werden
-		Ports in der Firewall geöffnet. Es empfiehlt sich, zwei Ketten für die
-		beiden Kommunikationsarten TCP und UDP zu erstellen.<br />Die policy
-		der FORWARD-Kette soll Pakete durchlassen. Dies geschieht mit<br />
+		<br /> lässt sich eine benutzer-definierte Kette erstellen. Mit ihnen
+		werden Ports in der Firewall geöffnet. Es empfiehlt sich, zwei Ketten
+		für die beiden Kommunikationsarten TCP und UDP zu erstellen.<br />Die
+		policy der FORWARD-Kette soll Pakete durchlassen. Dies geschieht mit<br />
 		<code># sudo iptables -P FORWARD DROP</code>
-		<br /> <br /> <br /> <a
+		<br /> Die ausgehende Kommunikation soll nicht behindert werden,
+		daher stellen wir die OUTPUT-policy auf ACCEPT.<br />
+		<code># sudo iptables -P OUPUT ACCEPT</code>
+		<br /> Die policy der INPUT-Kette soll Pakete verwerfen, da sie
+		i.d.R. schon durch eine vorgehende Regel behandelt werden sein
+		sollten. <br />
+		<code># sudo iptables -P INPUT DROP</code>
+		<br />Die erste Regel der INPUT-Kette behandelt das
+		loopback-interface, welches für die korrekte Funktionsweise einiger
+		Daemons und Anwendungen benötigt wird.<br />
+		<code># sudo iptables -A INPUT -i lo -j ACCEPT</code>
+		<br />Die Zweite lässt für das ICMP-Protokoll wichtige Funktionen zu
+		wie bspw. die TCP-Staukontrolle und das managen von MTUs.<br />
+		<code># sudo iptables -A INPUT -m conntrack --ctstate
+			RELATED,ESTABLISHED -j ACCEPT</code>
+		<br /> Die dritte Regel verwirft alle Pakete, dessen Addressen
+		fehlerhaft sind, bspw. ein falscher Header oder eine falsche
+		Prüfsumme.<br />
+		<code># sudo iptables -A INPUT -m conntrack --ctstate INVALID
+			-j DROP</code>
+		<br /> <a
 			href="https://wiki.archlinux.org/index.php/simple_stateful_firewall">Quelle
 			1</a><br /> <a
 			href="https://de.wikibooks.org/wiki/Linux-Praxisbuch:_Linux-Firewall_mit_IP-Tables">Quelle
 			2</a><br /> <a href="https://wiki.archlinux.org/index.php/iptables">Quelle
-			3</a> <a href="http://www.iptables.info/en/structure-of-iptables.html">Quelle
-			4</a> <a href="http://www.linuxnix.com/iptables-in-linux-explained/">Quelle
-			5</a><a
+			3</a> <br /> <a
+			href="http://www.iptables.info/en/structure-of-iptables.html">Quelle
+			4</a> <br /> <a
+			href="http://www.linuxnix.com/iptables-in-linux-explained/">Quelle
+			5</a><br /> <a
 			href="https://www.frozentux.net/iptables-tutorial/chunkyhtml/x4625.html">Quelle
-			6</a>
+			6</a><br /> <a
+			href="https://www.bsi.bund.de/DE/Themen/ITGrundschutz/ITGrundschutzKataloge/Inhalt/_content/m/m05/m05091.html">Quelle
+			7</a>
 	</div>
 	<div id="Navigation">
 		<a href="Index2.html" id="link-up">Zurück zum Index</a>
