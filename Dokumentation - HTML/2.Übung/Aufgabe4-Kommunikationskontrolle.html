@@ -8,7 +8,7 @@
 </head>
 <body>
 	<div class="text">
-		a) Mit Firewalls kann man den Datentraffic in einem Netzwerk
+		<b>a)</b> Mit Firewalls kann man den Datentraffic in einem Netzwerk
 		beobachten und kontrollieren. Die Standrd-Firewall-Lösung unter Linux
 		heißt "netfilter", welche seit Kernel-Version 2.4 in Linux integriert
 		ist. Eine weitere Software namens "iptables" wird häufig dazu
@@ -117,9 +117,9 @@
 		<br /> Die ausgehende Kommunikation soll nicht behindert werden,
 		daher stellen wir die OUTPUT-policy auf ACCEPT.<br />
 		<code># sudo iptables -P OUPUT ACCEPT</code>
-		<br /> Die policy der INPUT-Kette soll Pakete verwerfen, da sie
-		i.d.R. schon durch eine vorgehende Regel behandelt werden sein
-		sollten. <br />
+		<br /> Die policy der INPUT-Kette soll, um umgsp. auf Nummer sicher
+		zu gehen, Pakete verwerfen, da sie i.d.R. schon durch eine vorgehende
+		Regel behandelt sein sollten. <br />
 		<code># sudo iptables -P INPUT DROP</code>
 		<br />Die erste Regel der INPUT-Kette behandelt das
 		loopback-interface, welches für die korrekte Funktionsweise einiger
@@ -130,24 +130,68 @@
 		<code># sudo iptables -A INPUT -m conntrack --ctstate
 			RELATED,ESTABLISHED -j ACCEPT</code>
 		<br /> Die dritte Regel verwirft alle Pakete, dessen Addressen
-		fehlerhaft sind, bspw. ein falscher Header oder eine falsche
-		Prüfsumme.<br />
+		fehlerhaft sind, ergo bspw. ein falscher Header oder eine falsche
+		Prüfsumme besitzen.<br />
 		<code># sudo iptables -A INPUT -m conntrack --ctstate INVALID
 			-j DROP</code>
-		<br /> <a
+		<br />Durch Anwendung dieser Regel wird die Firewall erst zu einer
+		zustands-orienterten.<br />Die nächste und vierte Regel lässt pings,
+		auch bekannt als ICMP-Echos, zu. Diese werden benutzt, um zu
+		überprüfen, ob ein Rechner erreichbar ist.<br />
+		<code># sudo iptables -A INPUT -p icmp --icmp-type 8 -m
+			conntrack --ctstate NEW -j ACCEPT</code>
+		<br /> <br />Nun kommen die anfangs erstellten, benutzer-definierten
+		Ketten zur Verwaltung von TCP- und UDP-Kommunikation zu Trage.<br />Da
+		TCP-Verbindungen vor der Kommunikation aufgebaut werden, sollen
+		SYN-Pakete angenommen werden. UDP-Verbindungen sollen direkt
+		angenommen werden.<br />TCP:
+		<code># sudo iptables -A INPUT -p tcp --syn -m conntrack
+			--ctstate NEW -j TCP</code>
+		<br />UDP:
+		<code># sudo iptables -A INPUT -p udp -m conntrack --ctstate
+			NEW -j UDP</code>
+		<br /> Falls der entsprechende Port geschlossen ist, soll bei TCP ein
+		TCP-RESET-Paket an den Sender gesendet werden. Bei UDP wird dem Sender
+		ein ICMP-port-unreachable-Paket zugesandt.<br />TCP:
+		<code># sudo iptables -A INPUT -p tcp -j REJECT --reject-with
+			tcp-reset</code>
+		<br />UDP:
+		<code># sudo iptables -A INPUT -p udp -j REJECT --reject-with
+			icmp-port-unreachable</code>
+		<br /> Als neunte und letzte Regel soll jedes Paket, dass bis jetzt
+		noch nicht behandelt wurde, abgelehnt werden.<br />
+		<code># sudo iptables -A INPUT -j REJECT --reject-with
+			icmp-proto-unreachable</code>
+		<br /> <br />Die so eben beschriebene Firewall sieht nun so aus:<br />
+		<img style="margin-left: -15%"
+			src="../Images/screenshot_iptable_rules_simple_config.png"
+			alt="simple config" style="width: 1200px; height: 762px;"><br />
+		Abb. 2: Einfache Konfiguration <br /> <br /> <br /> <b>b)</b> Die
+		sicherste Konfiguration ist die, die keine Kommunikation von und nach
+		außen zulässt. Ausgenommen sind hier Systemdienste, was über das
+		loopback-interface realisiert wird. Hierzu wird die policy der
+		OUTOUT-Kette auf "DROP" gesetzt und als einzige Regel verbleibt der
+		INPUT-Kette<br />
+		<code># sudo iptables -A INPUT -i lo -j ACCEPT</code>
+		<br />Bisherige Regeln können mit<br />
+		<code>
+			# sudo iptables -D <i>kettenName</i> <i>zeilennummer</i>
+		</code>
+		<br />gelöscht werden.<br /> <br /> <b>hier den screenshot
+			einfügen</b><br />Abb. 3: Konfiguration mit maximaler Sicherheit<br />
+		<br /> <br /> <a
 			href="https://wiki.archlinux.org/index.php/simple_stateful_firewall">Quelle
-			1</a><br /> <a
+			1 für iptables Regeln</a><br /> <a
 			href="https://de.wikibooks.org/wiki/Linux-Praxisbuch:_Linux-Firewall_mit_IP-Tables">Quelle
-			2</a><br /> <a href="https://wiki.archlinux.org/index.php/iptables">Quelle
-			3</a> <br /> <a
+			2 für iptables Recherche</a><br /> <a
+			href="https://wiki.archlinux.org/index.php/iptables">Quelle 3 für
+			iptables Recherche</a> <br /> <a
 			href="http://www.iptables.info/en/structure-of-iptables.html">Quelle
-			4</a> <br /> <a
-			href="http://www.linuxnix.com/iptables-in-linux-explained/">Quelle
-			5</a><br /> <a
+			4 für Erläuterung von Tabellen</a> <br /> <a
 			href="https://www.frozentux.net/iptables-tutorial/chunkyhtml/x4625.html">Quelle
-			6</a><br /> <a
-			href="https://www.bsi.bund.de/DE/Themen/ITGrundschutz/ITGrundschutzKataloge/Inhalt/_content/m/m05/m05091.html">Quelle
-			7</a>
+			5 für Erläuterung von RETURN-Regel</a><br /> <a
+			href="https://wiki.ubuntuusers.de/ping/">Quelle 6 für Erläuterung
+			von ping</a>
 	</div>
 	<div id="Navigation">
 		<a href="Index2.html" id="link-up">Zurück zum Index</a>
