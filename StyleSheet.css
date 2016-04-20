@@ -12,6 +12,10 @@ a {
 	color: grey;
 }
 
+h1{
+	text-align: center;
+}
+
 dt {
 	margin-left: 2%;
 	display: list-item;
@@ -23,4 +27,17 @@ code {
 	border: outset;
 	border-color: black;
 	border-width: 1px;
+}
+
+.list {
+	list-style: none; 
+	margin-left: 0%;
+
+}
+
+.list li{
+		margin-bottom: 20px;
+}
+.listheader {
+	margin-left: -5%;
 }
