@@ -8,11 +8,25 @@
 </head>
 <body>
 	<div class="text">
-		<p>
-			<code># sudo apt-get remove [programmname]</code>
-			<br /> 
-			Unterschied zu "purge" erklären
-		</p>
+		Als zu entfernende Software wird das Spiel "pacman" ausgewählt.<br />
+		<img src="../Images/screenshot_pacman_installed.png"
+			alt="pacman installed"><br />Abb. 1: Das Paket des
+		Spieleklassikers pacman unter
+		<code>dpkg -l</code>
+		<br /> <br />Die Deinstallation von pacman erfolgt über den
+		Kommandozeilenbefehl<br />
+		<code># sudo apt-get remove pacman</code>
+		<br />wird das pacman-Paket gelöscht, die erzeugten
+		Konfigurationsdateien bleiben aber erhalten. Mit<br />
+		<code># sudo apt-get purge pacman</code>
+		<br />werden auch Diese gelöscht.<br />Mit dem Befehl<br />
+		<code>dpkg -l</code>
+		lassen sich unter Debian alle auf dem Rechner befindlichen Pakete
+		anzeigen. Bei Benutzung von apt-get purge kann man hier keinen Eintrag
+		namens pacman lesen können.<br /> <br /> <img
+			src="../Images/screenshot_pacman_removed.png" alt="services"><br />Abb.
+		2: Kein Pacman vorhanden <br />
+		<br /> <a href="https://wiki.ubuntuusers.de/apt/apt-get/">Quelle</a>
 	</div>
 	<div id="Navigation">
 		<a href="Index2.html" id="link-up">Zurück zum Index</a>
