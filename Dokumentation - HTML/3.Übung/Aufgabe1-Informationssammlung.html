@@ -8,57 +8,90 @@
 <body>
 	<div class="text">
 		<p>
-			<b>a) Tracking</b> <br /> Hier wird das Surfverhalten von Nutzern
+			<b>a) Tracking</b>
+			<br />
+			Hier wird das Surfverhalten von Nutzern
 			verfolgt, um z.B. Werbung zielgerechter zu platzieren. Dies kann
-			bspw. ueber Google Analytics und/oder Cookies realisiert werden. Als
-			Gegenmaßnahme kann hier eine Whitelist fuer Cookies eingestellt, bzw.
-			Nur Cookies von Erst- und besuchten Drittseiten akzeptiert werden. <br />
-			<b>b) Cross Site Scripting (XSS)</b> <br /> Ein Angreifer kapert
-			eine Website und platziert im HTML Code ein boesartiges Skript,
-			welches vom User ausgefuehrt wird. <a
-				href="https://www.acunetix.com/websitesecurity/cross-site-scripting/">Quelle</a>
-			<br /> <b>c) Heartbleed</b><br />Heartbleed war/ist eine
+			bspw. über Google Analytics und/oder Cookies realisiert werden. Als
+			Gegenmaßnahme kann hier eine Whitelist für Cookies eingestellt, bzw.
+			Nur Cookies von Erst- und besuchten Drittseiten akzeptiert werden.
+			<br />
+			<b>b) Cross Site Scripting (XSS)</b>
+			<br />
+			Ein Angreifer kapert
+			eine Website und platziert im HTML Code ein bösartiges Skript,
+			welches vom User ausgeführt wird. <a href="https://www.acunetix.com/websitesecurity/cross-site-scripting/">Qülle</a>
+			<br />
+			<b>c) Heartbleed</b>
+			<br />
+			Heartbleed war/ist eine
 			Sicherheitslücke in openSSL. Hierbei wird beim sog. Heartbeat, eine
 			Funktionalität, bei der ein Sender signalisiert, dass seine
 			Verbindung zu seinem Kommunikationspartner immer noch aktiv ist,
-			ausgenutzt.<br />Der Sender schickt nun seine Datenpakete los, über
+			ausgenutzt.
+			<br />
+			Der Sender schickt nun seine Datenpakete los, über
 			dessen Nutzdatengröße er lügen kann. Der Empfänger bekommt diese
 			Daten und sendet die Nutzdaten (engl.: payload) unverändert zurück.
 			Da die eigentliche payload kleiner war als die MTU es zulässt, füllt
 			der Empfänger den Rest mit Daten, die er kürzlich benutzt hat, etwa
 			mit Passwörtern, auf. Der Angreifer hat nun Zugriff auf jene Daten.<br />
-			<a
-				href="http://www.heise.de/security/artikel/So-funktioniert-der-Heartbleed-Exploit-2168010.html">Quelle
-				Heartbleed</a><br />
-			<a href="https://tools.ietf.org/html/rfc6520">Quelle Heartbeat</a> <br />
-			<b>d) Werbung</b> <br /> Werbung ist ein weiterer Weg, einem User
-			boesartigen Code einzuschleusen. Diese kann mit einem AdBlocker
-			beseitigt werden. Hier entsteht ein Zielkonflikt fuer
-			Content-Anbieter, die sich einerseits ueber Werbung finanzieren
-			muessen, aber andererseits nicht fuer ausgelieferte Viren an User
-			verantwortlich sein wollen. <br /> <b>e) HTTP /
-				unverschluesselte Kommunikation</b> <br /> <b>f) man in the middle
-				Angriff</b> <br /> Bei einem mitm-Angriff gebe ich mich als Empfaenger
-			aus und fange so den Userinput ab. Um meine Glaubwuerdigkeit zu
-			beweisen, leite ich alle Requests des Users dennoch an den
+			<a href="http://www.heise.de/security/artikel/So-funktioniert-der-Heartbleed-Exploit-2168010.html">Qülle
+				Heartbleed</a>
+			<br />
+			<a href="https://tools.ietf.org/html/rfc6520">Qülle Heartbeat</a>
+			<br />
+			<b>d) Werbung</b>
+			<br />
+			Werbung ist ein weiterer Weg, einem User
+			bösartigen Code einzuschleusen. Diese kann mit einem AdBlocker
+			beseitigt werden. Hier entsteht ein Zielkonflikt für
+			Content-Anbieter, die sich einerseits über Werbung finanzieren
+			müssen, aber andererseits nicht für ausgelieferte Viren an User
+			verantwortlich sein wollen.
+			<br /><b>e) HTTP / unverschlüsselte Kommunikation</b>
+			<br />
+			Bei der Kommunikation mittels HTTP gibt es keine Möglichkeit, die Echtheit der anderen Seite zu überprüfen.
+			Mit HTTPS, welches je nach Serverkonfiguration mit TLS verschlüsselt ist besteht diese Authentifizierung schon.
+			Abhilfe kann hier für viele Websiten das Plugin HTTPS Everywhere bieten. Mehr dazu unter Aufgabe 3.
+			<br />
+			<b>f) man in the middle	Angriff</b>
+			<br />
+			Bei einem mitm-Angriff gebe ich mich als Empfänger
+			aus und fange so den Userinput ab. Um meine Glaubwürdigkeit zu
+			beweisen, leite ich alle Reqüsts des Users dennoch an den
 			entsprechenden Server durch. Ich kann mich z.B. als google-Server
 			ausgeben. Sobald sich der User einloggen will, schneide ich seine
-			Login-Daten mit und gebe diese an den echten google-Server weiter. <br />Als
-			Angreifer kann bzw. konnte man Code in die JavaScript-Sandbox des
+			Login-Daten mit und gebe diese an den echten google-Server weiter, damit der User keinen Verdacht schöpft.
+			<br />
+			<b>g) integrierter PDF-Reader</b>
+			<br />
+			Als	Angreifer kann bzw. konnte man Code in die JavaScript-Sandbox des
 			integrierten PDF-Readers des Firefox platzieren, welcher dann Dateien
-			auf dem Opferrechner sucht und diese dem Angreifer zukommen lässt. <b>g)
-				integrierter PDF-Reader</b> <br />Als Angreifer <br /> <a
-				href="http://www.heise.de/security/meldung/Web-Browser-Kritische-Sicherheitsluecke-in-Firefox-geschlossen-2774450.html">Quelle</a>
-			<br /> <b>h) Javascript</b> ??? <br /> <b>i) Gespeicherte
-				Passwoerter</b> <br /> User speichern Passwoerter oft in der vom
-			Firefox zur Verfuegung gestellten Passwort-speichern-Funktion. Wenn
-			ich als Angreifer nun Zugang zu jener Datenbank bekomme, habe ich
-			volle Kontrolle ueber alle Accounts des Users. <br /> <b>j)
-				prefetching</b> <br /> Beim prefetching koennen fuer Links auf Websiten
+			auf dem Opferrechner sucht und diese dem Angreifer zukommen lässt.
+			<br /><a href="http://www.heise.de/security/meldung/Web-Browser-Kritische-Sicherheitslücke-in-Firefox-geschlossen-2774450.html">Qülle</a>
+			<br />
+			<b>h) Javascript</b>
+			<br />
+			Bei der Webentwicklung mit JavaScript können viele Fehler auftreten,
+			durch jene ein Angreifer Zugriff auf den anzugreifenden Rechner erlangen kann.
+			Ebenfalls können Lücken in der JavaScript-Engine des Browsers vorhanden sein.
+			<br />
+			<a href="https://www.bsi.bund.de/DE/Themen/StandardsKriterien/ISi-Reihe/ISi-Web-Server/aktive_inhalte/definitionen/definitionen_javascript_node.html">Quelle</a>
+			<br />
+			<b>i) Gespeicherte Passwörter</b>
+			<br />
+			User speichern Passwörter oft in der vom Firefox zur Verfügung gestellten Passwort-speichern-Funktion.
+			Wenn ich als Angreifer nun Zugang zu jener Datenbank bekomme, habe ich
+			volle Kontrolle über alle Accounts des Users.
+			<br />
+			<b>j) prefetching</b>
+			<br />
+			Beim prefetching können für Links auf Websiten
 			ein flag gesetzt werden, dass den Browser dazu auffordert, die
 			Zielseite zu laden, bevor sie der User aufruft. Erstens kann auf
-			diesen Seiten boesartiger Code liegen, zweitens kann man in
-			Deutschland u.U. sich somi strafbar machen. Dies kann ueber
+			diesen Seiten bösartiger Code liegen, zweitens kann man in
+			Deutschland  sich somit u.U. strafbar machen, wenn man auf unseriösen Seiten surft. Dies kann über
 			about:config --> network.prefetch-next auf false deaktiviert werden.
 		</p>
 	</div>
