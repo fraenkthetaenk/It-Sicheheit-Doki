@@ -7,41 +7,42 @@
 	Systemkonfiguration</title>
 </head>
 <body>
-<h1>Zugangsschutz - Bildschirmsperre</h1>
+	<h1>Zugangsschutz - Bildschirmsperre</h1>
 	<div class="text">
 		<ul class="list">
-			<li>
-			
-			<b class="listheader">a) Zeitrahmen Bildschirmsperre</b> 
-			<p>
-				Fünf Minuten sind ein guter Wert für die Aktivierung der automatischen Bildschirmsperre.
-			</p> 
-			<p>
-				Bei einem geringeren Wert muss das Passwort öfter
-				eingegeben werden, was erstens für den Anwender unerfreundlich sein
-				kann, des weiteren entsteht dadurch für einen Angreifer häufiger die
-				Möglichkeit, die Eingabe des Passwortes zu beobachten.
-			</p>
-			<p>
-				Zudem kann es vorkommen, dass bei einer geringeren Zeitspanne die Bildschirmsperre
-				während dem normlen Arbeiten aktiviert wird, was sehr unkonforable ist.
-			</p>
-			<p>
-				Bei einem höheren Wert entsteht ein Sicherheitsrisiko, da ein Angreifer hier
-				genug Zeit hat, sich unebmerkt Zugriff zum System zu verschaffen.
-			</p>
+			<li><b class="listheader">a) Zeitrahmen Bildschirmsperre</b>
+				<p>Fünf Minuten sind ein guter Wert für die Aktivierung der
+					automatischen Bildschirmsperre.</p>
+				<p>Bei einem geringeren Wert muss das Passwort öfter eingegeben
+					werden, was erstens für den Anwender unerfreundlich sein kann, des
+					weiteren entsteht dadurch für einen Angreifer häufiger die
+					Möglichkeit, die Eingabe des Passwortes zu beobachten.</p>
+				<p>Zudem kann es vorkommen, dass bei einer geringeren Zeitspanne
+					die Bildschirmsperre während dem normlen Arbeiten aktiviert wird,
+					was sehr unkonforable ist.</p>
+				<p>Bei einem höheren Wert entsteht ein Sicherheitsrisiko, da ein
+					Angreifer hier genug Zeit hat, sich unebmerkt Zugriff zum System zu
+					verschaffen.</p> <img src="../Images/GIF-Bildschirmsperre-1.gif">
 
-				<img src="../Images/GIF-Bildschirmsperre-1.gif">
-			
 			</li>
-			<li>
-			<b class="listheader">b) Button Bildschirmsperre</b>
-			<p>
-				<b>link nur für recherche da</b>
-				<a href="https://askubuntu.com/questions/141229/how-to-add-a-shell-script-to-launcher-as-shortcut">https://askubuntu.com/questions/141229/how-to-add-a-shell-script-to-launcher-as-shortcut</a>
-			</p>
-			</li>
-	</ul>	
+			<li><b class="listheader">b) Button Bildschirmsperre</b><br />Gezeigt
+				werden zwei Alternativen. Bei beiden wird ein shell-Skript
+				ausgeführt, auf das eine Verknüpfung auf dem Desktop liegt.<br />Ein
+				shell-Skript kann mit<br /> <code>
+					touch <i>skriptName</i>
+				</code><br />erzeugt werden. Mit<br /> <code>
+					chmod <i>skriptName</i> +x
+				</code><br />kann das erzeugte Skript ausführbar gemacht werden. Als
+				letzten Schritt kann man nun per drag and drop das Skript auf den
+				Desktop befördern und nun mit einem Mausklick starten.<br />Alternative
+				1:<br />Als nötiges Tool wird Xdotool installiert, mit welchem u.A.
+				Tastaturanschläge simuliert werden können.<br />Das folgende Skript
+				schickt den User direkt auf den Sperrbildschirm.<br /> <code>#!/bin/bash</code><br />
+				<code>xdotool key ctrl+alt+l</code><br /> <br />Alternative 2:<br />Das
+				Tool XScreenSaver wird installiert. Anschließend wird mit<br /> <code>xscreensaver-command
+					-lock</code><br />der Bildschirmschoner angezeigt. Mit einem Tastendruck
+				gelangt man in den Sperrbildschirm.</li>
+		</ul>
 	</div>
 	<div id="Navigation">
 		<a href="Index2.html" id="link-up">Zurück zum Index</a>
