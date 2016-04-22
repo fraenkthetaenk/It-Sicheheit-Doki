@@ -10,7 +10,7 @@
 <h1>Autorisierung</h1>
 	<div class="text">
 		<p>
-			a) + b) Mit dem su-Befehl kann man in den Benutzer wechseln.
+			<b>a) + b)</b> Mit dem su-Befehl kann man in den Benutzer wechseln.
 			Ohne Angabe eines Beutzernames wird Standart maßig root ausgewählt.
 			Hierbei muss man das Passwort des Nutzers eingeben.
 			<br />
@@ -19,12 +19,42 @@
 			Dies ist sinnvoll, da der Admin-(root)Modus
 			nur so kurz wie noetig benutzt werden sollte, um Schaden zu
 			vermeiden. Der User, der den sudo-Befehl ausfuehren moechte, muss vom
-			Admin auf die Liste der sudo-berechtigten Usern gesetzt werden.<br />
+			Admin auf die Liste der sudo-berechtigten Usern gesetzt werden.
+			<br />
 			<a
 				href="http://www.linux-community.de/Internal/Artikel/Print-Artikel/LinuxUser/2004/02/Zu-Befehl-su-sudo">Quelle
 			</a>
+			<br />
+			<br />
+			<b>c)</b>
+			<br />
+			Mit der Funktion
+			<br />
+			<code># sudo adduser <i>username</i></code>
+			<br />
+			kann ein neuer Benutzer hinzugefügt werden. In diesem Beispiel wurde der Benutzer "user" angelegt.<br />
+			Mit dem Befehl
+			<br />
+			<code>visudo</code>
+			<br />
+			kann die Liste der sudo-berechtigten User, auch als sudoers bekannt, verändert werden. Unter
+			<br />
+			<code>Allow members of group sudo to execute any command</code>
+			<br />
+			kann nun
+			<br />
+			<code>user ALL=(ALL:ALL) ALL</code>
+			<br />
+			eingetragen werden.
+			<br />
+			Hierdurch hat der Benutzer "user" nun die Möglichkeit, von allen Terminals alle Befehle auszuführen.
+			<br />
+			Um seine Admin-Fähigkeit zu beweisen wurde eine iptables-Regel der nachfolgenden Aufgabe angesehen.
+			<br />
+			<br />
+			<img src="../Images/screenshot_user_admin_rechte.png">
 		</p>
-		<h3>C FEHLT</h3>
+		
 	</div>
 	<div id="Navigation">
 		<a href="Index2.html" id="link-up">Zurück zum Index</a>
