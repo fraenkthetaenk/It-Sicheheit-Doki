@@ -8,42 +8,139 @@
 </head>
 <body>
 	<div class="text">
-		<p>
-			<b>a)</b> 
-			Ein Sender verschluesselt seine Daten und muss dem
+
+		
+		<ol>
+		<li>
+			<b>Symmetrische Verschlüsselung</b>
+			<ul>
+				<li>
+				Beim Symetrischen Verfahren werden die Daten mir ein und demselben Schlüssel entschlüsselt, mit dem sie auch verschlüsselt wurden.
+				Ein großes Probelm bei diesem Verfahren ist die Übergabe des Schlüssels, da dieser nicht einfach in einer ungesicherten Verbindung übermittelt werden darf, das sonst die ganze Verschlüsselung gar keinen Sinn macht.
+				Zudem braucht man für jeden Kommunikationspartner einen eigenen Schlüssel, was sich gerade bei dem Problem mit der sichern Schlüsselübertragung sehr aufwämdig werden kann.
+				Dieses Verfahren erinenrt stark an das Cäser-verfahren.  
+				<!-- Ein Sender verschluesselt seine Daten und muss dem
 			Empfaenger den Schluessel zukommen lassen. Dieser kann mit diesem
 			Schluessel die Daten wieder entschluesseln. Das Problem hierbei ist
-			oft die sichere Uebertragung des Schluessels. Schluessel zukommen
-			lassen. Ferner nimmt die Menge der Schluessel exponential zur Anzahl
-			der Kommunikationspartner zu. 
+			oft die sichere Uebertragung des Schluessels. Ferner nimmt die Menge der Schluessel exponential zur Anzahl
+			der Kommunikationspartner zu. --> 
 			<br />
-			<a href="https://www.bsi.bund.de/DE/Themen/ITGrundschutz/ITGrundschutzKataloge/Inhalt/_content/m/m03/m03023.html;jsessionid=9B17D79365643F37CD1C8294100B51B9.2_cid368?nn=6610630">Quelle</a>
-			<br />
-			<br />
-			<b>b)</b>
-			bei der asymetrischen Verschluesselung gibt
-			es zwei Schluessel - den public key zum verschluesseln und den
-			private key zum entschluesseln.
-			<br />
-			Der public key beinhaltet ein
+			<a href="https://www.bsi.bund.de/DE/Themen/ITGrundschutz/ITGrundschutzKataloge/Inhalt/_content/m/m03/m03023.html;jsessionid=9B17D79365643F37CD1C8294100B51B9.2_cid368?nn=6610630">Quelle</a></li>
+			</ul>
+		</li>
+		<li>
+			<b>Asymmetrische Verschlüsselung</b>
+			<ul>
+				<li>
+				Bei der Asymmetrischen Verschlüsselung gibt es 2 Schlüssel.
+				Einen Public Key der jedem Zugänglich ist und einem Privat Key der geheim ist und nur der Empfänger der verschlüsselten Nachricht kennt.
+				Wenn eine Nachricht mit dem Asymetrischen Verfahren verschlüsselt werden soll, so holt sich der Sender den Öffentlichen Schlüssel des Empfängers und Verschlüsselt damit seine Nachricht.
+				Der Empfänger ist dann in der Lage diese Nachricht mit seinem Private Key zu entschlüsseln.
+				
+				<!-- Der public key beinhaltet ein
 			Produkt aus zwei Zahlen. Der private key die beiden multiplizierten
 			Zahlen. Da der public key aus mehrern Zahlenkombinationen bestehen
 			kann, ist ein Entschluesseln oft sehr aufwaendig. Die Zahl 24 bspw.
-			kann aus 1x24, 2x12 und 4x6 bestehen.
+			kann aus 1x24, 2x12, 3x8 und 4x6 bestehen. --><br/>
 			<a href="https://www.bsi-fuer-buerger.de/BSIFB/DE/Empfehlungen/Verschluesselung/Verschluesseltkommunizieren/Grundlagenwissen/AsymmetrischeVerschluesselung/asymmetrische_verschluesselung_node.html;jsessionid=BCD53594613A3FBB3199AB871B5FCDE3.2_cid341">Quelle</a>
+			<br /></li>
+			</ul>
+		</li>
+<!-- 		<li> -->
+<!-- 			<b>Public/Private Key</b> -->
+<!-- 			<ul> -->
+<!-- 				<li>Public Key: -->
+<!-- 				<br/> -->
+<!-- 				</li> -->
+<!-- 				<li>Private Key: -->
+<!-- 				<br/> -->
+<!-- 				</li> -->
+<!-- 			</ul> -->
+<!-- 		</li> -->
+		<li>
+			<b>Fingerprint Public Key</b>
+			<ul>
+				<li>Der Fingerabdruck des public key
 			<br />
-			<br />
-			<b>c)</b>
-			siehe Teilaufgabe b 
-			<br />
-			<br />
-			<b>d)</b>Der Fingerabdruck des public key
-			<br />
+			Der Fingerabruck des Public Keys ist eine Checksumme oder ein Hash-Wert, der Zusammen mit dem Schlüssel übertragen wird. <br/>
+			Er dient dazu um sicherzustellen, dass der Schlüssel vollständig und richtig empfangen wurde und er nicht verändet wurde. Zudem Kann man dem Fingerprint auch noch ein Zertifikat hinzufügen um Sicherzustellen, das man den Key auch direkt vom (richtigen/echten) Empfänger erhält.
 			<a href="https://www.bsi.bund.de/DE/Themen/ITGrundschutz/ITGrundschutzKataloge/Inhalt/_content/m/m04/m04034.html">Quelle</a>
 			<br />
 			<a href="https://www.bsi-fuer-buerger.de/BSIFB/DE/Empfehlungen/Verschluesselung/Verschluesseltkommunizieren/Grundlagenwissen/DigitaleSignatur/digitale_signatur_node.html">Quelle</a>
 			<br />
-		</p>
+			<a href="https://www.gnupg.org/gph/de/manual/x193.html">Quelle</a>
+			<br/>
+			</li>
+			</ul>
+		</li>
+		<li>
+			<b>Passphrase Geheimer Schlüssel</b>
+			<ul>
+				<li>Ein geheimer Schlüssel hat eine Prassphrase (Passwort), um ihn vor den Zugriff unbefugter zu schützen. Der Schutz des Privaten Schlüssel ist besonders wichtig, da sollte er einmal bekannt sein, seine ganze Kommunikation ausgelen weden kann</li>
+			</ul>
+		</li>
+		<li>
+			<b>Signierung Öffentlicher Schlüssel</b>
+			<ul>
+				<li>Die Signierung des Öffentlichen Schlüssel ist wichtig, da man sich ansonsten nicht sicher sein kann ob dieser Schlüssel wirklich dem Empfänger gehört, oder sich jemand zwischen den Sender und Empfänger gesetzt hat und seinen Public Key weitergeleitet hat, damit er dei Nachricht entschlüsseln und lesen kann</li>
+			</ul>
+		</li>
+		<li>
+			<b>Widerrufs Schlüssel</b>
+			<ul>
+				<li>Mit einem Widerrufschlüssel, kann man seinen alten Schlüssel jederzeit durch einen neuen ersetzen</li>
+			</ul>
+		</li>
+		<li>
+			<b>Signierte Mail</b>
+			<ul>
+				<li>Bei einer Signierten Mail kann sichergestellt werden, von wem diese Mail versand wurde und ob die Datei immer noch die gleiche ist, wie beim Zeitpunkt der Signierung</li>
+			</ul>
+		</li>
+		<li>
+			<b>Bewertung Verschlüsselung</b>
+			<ul>
+				<li>Symetrische Verschlüsselung
+					<ul>
+						<li>Vorteile:
+							<ul>
+								<li>Sind Schnell und habe eine gute Übertragungsrate</li>
+								<li>Sicherheit ist direkt proprtional zum Schlüssellänge</li>
+								<li>Auch bei relativ kurzen Schlüsseln gute Sicherheit</li>
+								<li>Die Schlüsselerzeugung ist sehr einfach (Zufallszahlreicht)</li>
+							</ul>
+						</li>
+						<li>Nachteile:
+							<ul>
+								<li>Jeder muss alle Schlüssel seiner Kommunikationspartner geheim halten</li>
+								<li>Die Schlüsselverteilung ist sehr aufwendig</li>
+								<li>Es ist nicht erkenntlich welche der beidne Parteien die Nachricht Verschlüsselt hat</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+				<li>Asymetrische Verschlüsselung
+					<ul>
+						<li>Vorteile:
+							<ul>
+								<li>Man muss nur einen (seinen privaten) Schlüssel geheim halten</li>
+								<li>Einfach für Digitale Signaturen zu verwenden</li>
+								<li>Elegante Lösung für die Schlüsselverteilung in Netzten</li>
+							</ul>
+						</li>
+						<li>Nachteile:
+							<ul>
+								<li>Recht Langsam, schlechte Datendurchsatzrate</li>
+								<li>Man benötigt relativ lange Schlüssel</li>
+								<li>Die Sicherheit beruht nur auf dem Mathematischen Problem (z.B Primfaktorzerlegung großer Zahlen)</li>
+								<li>Die Schlüsselerzeugung ist recht Komplex, damit keine Schwachen Schlüssel erzeugt werden</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+		</ol>
 	</div>
 	<div id="Navigation">
 		<a href="Index4.html" id="link-up">Zurück zum Index</a>
