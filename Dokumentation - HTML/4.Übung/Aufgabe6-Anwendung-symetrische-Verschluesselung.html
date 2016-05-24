@@ -6,7 +6,28 @@
 <title>Insert title here</title>
 </head>
 <body>
-<div></div><div id="Navigation">
+<div>
+<ol>
+	<li>Zuerst erstellen wir eine Textdatei, welche wir verschlüsseln wollen<br>
+		Diese Datei hat folgenden Inhalt:<br>
+		"Diese nachricht soll verschlüsselt werden.!!!!"<br>
+		Und Speichern sie als "Nachricht-zu-verschlüsseln.txt", in 	"C:\Users\Frank\Desktop\UNI\4.Semester\its" ab.
+	</li>
+	<li>Um diese Datei symmetrisch zu Verschlüsseln, geben wir nun <br><code>gpg -e -c c:\Users\Frank\Desktop\UNI\4.Semester\its\Nachricht-zu-verschlüsseln.txt</code><br> in der console ein.</li>
+	<li>Als nächstes müssen wir die User-ID (den Namen) des Empfängers eingeben, nun müssen wir noch eine Passphrase eingeben und es wird eine Verschlüsselte Datei erzeugt. (die Unverschlüsselte bleibt ebenfalls erhalten)
+		<br>
+		<img src="../Images/Datei-encript.png">
+		<br>
+		<img src="../Images/datei-encipt and source.png">
+	</li>
+	<li>Um die Nachricht wieder zu entschlüssel verwebdeb wird folgender Befahl verwendet <br>
+	<code>gpg -d c:\Users\Frank\Desktop\UNI\4.Semester\its\Nachricht-zu-verschlüsseln.txt.gpg</code>.<br>
+		Zum entschlüsseln müssen wir dann wieder unser Passwort eingegeben und bei erfolgreicher eingabe wird der Inhalt der Datei auf der Konsole ausgegeben.<br>
+		<img src="../Images/Datei-deencript.png">
+	</li>
+
+</ol>
+</div><div id="Navigation">
 		<a href="Index4.html" id="link-up">Zurück zum Index</a>
 	</div>
 </body>
