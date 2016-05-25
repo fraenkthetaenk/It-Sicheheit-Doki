@@ -4,11 +4,14 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="../../StyleSheet.css">
 <title>Aufgabe 9-Automatisierung: Shell-Programm</title>
+<link rel="icon" type="image/png" href="Images/favicon400x400.png">
+	<link rel="icon" type="image/png" href="Images/favicon64x64.png">
+	<link rel="icon" type="image/png" href="Images/favicon32x32.png">
 </head>
 <body>
 	<div class="text">
 		<p>
-			a)
+			<b>a)</b>
 			<br />
 			<code># echo ========update-und-virenscann=========</code><br>
 			
@@ -16,7 +19,7 @@
 			<br />
 			<code>#sudo apt-get upgrade</code>
 			<br />
-			b)
+			<b>b)</b>
 			<br />
 			um den scan ausführen zu können muss erst der deamon deaktiviert werden.<br/>
 			 <code>sudo /etc/init.d/clamav-freshclam stop</code>
@@ -25,13 +28,14 @@
 			<br />
 			<code>sudo /etc/init.d/clamav-freshclam start</code>
 			<br />
-			c)
+			<b>c)</b>
 			<br />
 			<code># sudo clamscan -r /tmp</code>
 			<br />
 			<code>echo ===========ende==========</code>
 			<br />
-			d) im Terminal <br />
+			<b>d)</b>
+			<br /> im Terminal <br />
 			<code>./verzeichnis/update_and_scan.sh</code>
 			eingeben
 			<br/>
@@ -41,19 +45,19 @@
 		<div id="pictures" style="margin-left:0%">
 			<span>Das Komplette Skript:
 			<br/>
-				<img src="../Images/Skript_update_and_scan_sh.png"></img>
+				<img  width="600px"  height="400px" src="../Images/Skript_update_and_scan_sh.png"/>
 				<br/>
 			</span>
 			
 			<span>Das Ergebniss des Skriptes:
 			<br/>
-				<img src="../Images/Skript_update_and_scan_sh_result.png"></img>
+				<img  width="600px"  height="400px" src="../Images/Skript_update_and_scan_sh_result.png"/>
 				<br/>
 			</span>
 			
 			<span>Ein Video der Ausführung:
 			<br/>
-				<video style="height: 500px" src="../Images/BSDEBIAN [wird ausgeführt] - Oracle VM VirtualBox 10.05.2016 18_49_05.mp4" controls="true"></video>
+				<video width=600px; heigth=400px; src="../Images/BSDEBIAN [wird ausgeführt] - Oracle VM VirtualBox 10.05.2016 18_49_05.mp4" controls="controls"></video>
 				<br/>
 			</span>
 		</div>
