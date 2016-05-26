@@ -9,9 +9,36 @@
 <title>Aufgabe 11 - Zugangsschutz / Authentifikation: Technische Passwort-Regeln</title>
 </head>
 <body>
+<h1>Passwort-Regeln in Linux integrieren</h1>
 <div>
 <b>a)</b>
 <br />
+Unter /etc/pam.d/common-password könnne diverse Regeln für Benutzerpasswörter festgelegt werden.
+<br />
+Mit <b>remember=9999</b> kann der Benutzer "nie" wieder das selbe Passwort verwenden.
+<br />
+Mit <b>nullok=0</b> kann festgelegt werden, dass der Benutzer ein Passwort haben muss. Standardmäßig ist diese Option aktiviert.
+<br />
+Mit <b>obscure</b> können diverse Regeln festgelegt werden, die prüfen, ob das neue Passwort dem alten zu sehr ähnelt.
+<br />
+Mit <b>minlen=12</b> kann die Mindestlänge des Passwortes festgelegt werden.
+<br />
+Mit <b>ucredit=-1 lcredit=-1 dcredit=-1 ocredit=-1</b> kann festgelegt werden, dass das Passwort mindestens einen Groß- und
+Kleinbuchstaben, eine Zahl und ein Sonderzeichen beinhalten muss.
+<br/>
+Ebenfalls kann mit <b>PASS_MAX_DAYS 30, PASS_WARN_AGE 7</b> unter /etc/login.defs eingestellt werden, dass der Benutzer
+jeden Monat ein neues Passwort festlegen muss. Er wird allerdings eine Woche zuvor darüber benachrichtigt.
+<br />
+<br />
+<img id="rules" src="../Images/screenshot_common_password_rules.png"/>
+<br />
+<br />
+<img id="rules2" src="../Images/screenshot_login_defs_password_change_days.png"/>
+<br />
+<br />
+<br />
+<b>b)</b>
+		<p style="color: red">Hier noch die Funktion überprüfen</p>
 
 </div>
 </body>
