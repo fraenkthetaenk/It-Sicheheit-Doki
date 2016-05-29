@@ -17,10 +17,12 @@
 			<b>Symmetrische Verschlüsselung</b>
 			<ul>
 				<li>
-				Beim Symetrischen Verfahren werden die Daten mir ein und demselben Schlüssel entschlüsselt, mit dem sie auch verschlüsselt wurden.
-				Ein großes Probelm bei diesem Verfahren ist die Übergabe des Schlüssels, da dieser nicht einfach in einer ungesicherten Verbindung übermittelt werden darf, das sonst die ganze Verschlüsselung gar keinen Sinn macht.
-				Zudem braucht man für jeden Kommunikationspartner einen eigenen Schlüssel, was sich gerade bei dem Problem mit der sichern Schlüsselübertragung sehr aufwämdig werden kann.
-				Dieses Verfahren erinenrt stark an das Cäser-verfahren.  
+				Beim Symmetrischen Verfahren werden die Daten mir ein und demselben Schlüssel entschlüsselt,
+				 mit dem sie auch verschlüsselt wurden. Ein großes Problem bei diesem Verfahren ist die Übergabe des Schlüssels,
+				  da dieser nicht einfach in einer ungesicherten Verbindung übermittelt werden darf, 
+				 dass sonst die ganze Verschlüsselung gar keinen Sinn macht. Zudem braucht man für jeden Kommunikationspartner einen eigenen Schlüssel, 
+				   was sich gerade bei dem Problem mit der sichern Schlüsselübertragung sehr aufwändig werden kann. 
+				Dieses Verfahren erinnert stark an das Cäsar-Verfahren. 
 				<!-- Ein Sender verschluesselt seine Daten und muss dem
 			Empfaenger den Schluessel zukommen lassen. Dieser kann mit diesem
 			Schluessel die Daten wieder entschluesseln. Das Problem hierbei ist
@@ -62,10 +64,11 @@
 		<li>
 			<b>Fingerprint Public Key</b>
 			<ul>
-				<li>Der Fingerabdruck des public key
+				<li>Der Fingerabdruck des public key:
 			<br />
 			Der Fingerabruck des Public Keys ist eine Checksumme oder ein Hash-Wert, der Zusammen mit dem Schlüssel übertragen wird. <br/>
-			Er dient dazu um sicherzustellen, dass der Schlüssel vollständig und richtig empfangen wurde und er nicht verändet wurde. Zudem Kann man dem Fingerprint auch noch ein Zertifikat hinzufügen um Sicherzustellen, das man den Key auch direkt vom (richtigen/echten) Empfänger erhält.
+			Er dient dazu um sicherzustellen, dass der Schlüssel vollständig und richtig empfangen wurde und er nicht verändet wurde. Zudem kann man dem Fingerprint auch noch ein Zertifikat hinzufügen um Sicherzustellen, das man den Key auch direkt vom (richtigen/echten) Empfänger erhält.
+			<br>
 			<a href="https://www.bsi.bund.de/DE/Themen/ITGrundschutz/ITGrundschutzKataloge/Inhalt/_content/m/m04/m04034.html">Quelle</a>
 			<br />
 			<a href="https://www.bsi-fuer-buerger.de/BSIFB/DE/Empfehlungen/Verschluesselung/Verschluesseltkommunizieren/Grundlagenwissen/DigitaleSignatur/digitale_signatur_node.html">Quelle</a>
@@ -84,13 +87,17 @@
 		<li>
 			<b>Signierung Öffentlicher Schlüssel</b>
 			<ul>
-				<li>Die Signierung des Öffentlichen Schlüssel ist wichtig, da man sich ansonsten nicht sicher sein kann ob dieser Schlüssel wirklich dem Empfänger gehört, oder sich jemand zwischen den Sender und Empfänger gesetzt hat und seinen Public Key weitergeleitet hat, damit er dei Nachricht entschlüsseln und lesen kann</li>
+				<li>Die Signierung des Öffentlichen Schlüssel ist wichtig, da man sich ansonsten nicht sicher sein kann ob dieser Schlüssel wirklich dem Empfänger gehört, oder sich jemand zwischen den Sender und Empfänger gesetzt hat und seinen Public Key weitergeleitet hat, damit er die Nachricht entschlüsseln und lesen kann.
+				<br>Mit einer Signierung sorgt man außerdem dafür, dass die Urheberschaft des Schlüssel sicherzustellen.
+				</li>
 			</ul>
 		</li>
 		<li>
 			<b>Widerrufs Schlüssel</b>
 			<ul>
-				<li>Mit einem Widerrufschlüssel, kann man seinen alten Schlüssel jederzeit durch einen neuen ersetzen</li>
+				<li>Mit einem Widerrufschlüssel, kann man seinen alten Schlüssel jederzeit Widerrufen und somit ungültig machen.
+				<br>Das ist eine Sicherheitsmaßnahme, mit der man dafür sorgen kann, dass keine Kommunikation mehr mit diesen Schlüssel möglich ist, sollte er kompromitiert werden.
+				</li>
 			</ul>
 		</li>
 		<li>
