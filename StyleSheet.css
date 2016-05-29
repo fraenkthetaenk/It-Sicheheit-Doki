@@ -1,22 +1,35 @@
-body{
-	background-color: white;
-}
-div {
-	margin-left: 22%;
-	margin-right: 20%;
+html {
+	background-color: #4285F4;
 }
 
-div.text {
+body {
+	margin-left: 22%;
+	margin-right: 20%;
 	margin-top: 6%;
 	margin-bottom: 15%;
+	background-color: white;
+	margin-bottom: 15%;
+	border: 2px solid black;
+}
+
+h1 {
+	text-align: center;
 }
 
 a {
-	color: grey;
+	color: black;
+	text-decoration: none;
 }
 
-h1{
-	text-align: center;
+a:hover {
+	border-bottom-color: #4285F4;
+	border-bottom-style: solid;
+	border-bottom-width: 2px;
+	font-weight: 600;
+}
+
+div {
+	padding: 5%;
 }
 
 dt {
@@ -26,27 +39,29 @@ dt {
 }
 
 code {
-	background-color: #FFFFDD;
+	background-color: #FF8A4C;
 	border: outset;
 	border-color: black;
 	border-width: 1px;
+	padding-left: 1%;
+	padding-right: 1%;
+	font-weight: 600;
 }
 
 .list {
-	list-style: none; 
+	list-style: none;
 	margin-left: 0%;
-
 }
 
-.list li{
-		margin-bottom: 20px;
+.list li {
+	margin-bottom: 20px;
 }
+
 .listheader {
 	margin-left: -5%;
 }
 
-.e-mail{
-	color: blue;
+.e-mail {
+	color: #4285F4;
 	display: table-row;
 }
-

@@ -5,6 +5,9 @@
 <link rel="stylesheet" type="text/css" href="../../StyleSheet.css">
 <title>Aufgabe 4 - Kommunikationskontrolle: Absicherung
 	eingehender Kommunikation</title>
+<link rel="icon" type="image/png" href="../Images/favicon400x400.png">
+<link rel="icon" type="image/png" href="../Images/favicon64x64.png">
+<link rel="icon" type="image/png" href="../Images/favicon32x32.png">
 </head>
 <body>
 <h1>Kommunikationskontrolle</h1>
@@ -165,9 +168,9 @@
 		<code># sudo iptables -A INPUT -j REJECT --reject-with
 			icmp-proto-unreachable</code>
 		<br /> <br />Die so eben beschriebene Firewall sieht nun so aus:<br />
-		<img style="margin-left: -15%"
+		<img width="600px"  height="400px" 
 			src="../Images/screenshot_iptable_rules_simple_config.png"
-			alt="simple config" style="width: 1200px; height: 762px;"><br />
+			alt="simple config"><br />
 		Abb. 2: Einfache Konfiguration <br /> <br /> <br /> <b>b)</b> Die
 		sicherste Konfiguration ist die, die keine Kommunikation von und nach
 		außen zulässt. Ausgenommen sind hier Systemdienste, was über das
@@ -179,7 +182,7 @@
 		<code>
 			# sudo iptables -D <i>kettenName</i> <i>zeilennummer</i>
 		</code>
-		<br />gelöscht werden.<br /> <br /> <b><img  src="../Images/screenshot_iptabels_max_sec.png">
+		<br />gelöscht werden.<br /> <br /> <b><img width="600px" height="400px" src="../Images/screenshot_iptabels_max_sec.png">
 			</b><br />Abb. 3: Konfiguration mit maximaler Sicherheit<br />
 		<br /> <br /> <a
 			href="https://wiki.archlinux.org/index.php/simple_stateful_firewall">Quelle

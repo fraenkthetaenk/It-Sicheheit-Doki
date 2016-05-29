@@ -5,25 +5,42 @@
 <link rel="stylesheet" type="text/css" href="../../StyleSheet.css">
 <title>Aufgabe 5 - Funktionalitaetsbeschraenkung: Elimination
 	ueberflüssiger Dienste</title>
+<link rel="icon" type="image/png" href="../Images/favicon400x400.png">
+<link rel="icon" type="image/png" href="../Images/favicon64x64.png">
+<link rel="icon" type="image/png" href="../Images/favicon32x32.png">
 </head>
 <body>
+	<h1>Dienste deaktivieren/entfernen</h1>
 	<div class="text">
-		<b>a)</b><br />mit dem Befehl<br />
+		<b>a)</b>
+		<br />
+		mit dem Befehl
+		<br />
 		<code># sudo services --status-all</code>
-		<br />lassen sich alle derzeit laufenden Dienste unter Linux
-		anzeigen.<br />Ein [ + ] bedeutet hierbei, dass der Dienst aktiv ist.
-		Ein [ - ] hingegen, dass der Dienst gestoppt wurde.<br /> <img
-			src="../Images/screenshot_servies.png" alt="services"
-			style="width: 663px; height: 913px;"><br /> <b>b)</b><br />Auf
-		einem "frischen" Debiansystem ist kein bluetooth vorinstalliert. Dies
-		kann mit<br />
+		<br />
+		lassen sich alle derzeit laufenden Dienste unter Linux anzeigen.
+		<br />
+		Ein [ + ] bedeutet hierbei, dass der Dienst aktiv ist.
+		Ein [ - ] hingegen, dass der Dienst gestoppt wurde.
+		<br />
+		<img src="../Images/screenshot_servies.png" alt="services" style="width: 663px; height: 913px;">
+		<br />
+		<b>b)</b>
+		<br />
+		Auf	einem "frischen" Debiansystem ist kein bluetooth vorinstalliert. Dies kann mit
+		<br />
 		<code># sudo aptitude bluetooth install</code>
-		<br />nachgeholt werden. Nun kann mit<br />
+		<br />
+		nachgeholt werden. Nun kann mit
+		<br />
 		<code># sudo service bluetooth stop</code>
-		<br />der bluetooth-Dienst für die derzeitige Session beendet werden.
-		Beim nächsten reboot wird der Dienst aber erneut gestartet. Mit <br />
+		<br />
+		der bluetooth-Dienst für die derzeitige Session beendet werden.	Beim nächsten reboot wird der Dienst
+		aber erneut gestartet. Mit 
+		<br />
 		<code># sudo update-rc.d bluetooth disable</code>
-		<br /> kann der bluetooth-Daemon permanent deaktiviert werden.
+		<br />
+		kann der bluetooth-Daemon permanent deaktiviert werden.
 	</div>
 	<div id="Navigation">
 		<a href="Index2.html" id="link-up">Zurück zum Index</a>

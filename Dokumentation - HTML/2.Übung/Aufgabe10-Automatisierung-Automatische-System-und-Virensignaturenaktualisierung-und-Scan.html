@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Aufgabe 10 - Automatisierung-Automatische-System-und-Virensignaturenaktualisierung-und-Scan</title>
+<link rel="stylesheet" type="text/css" href="../../StyleSheet.css">
+<link rel="icon" type="image/png" href="../Images/favicon400x400.png">
+<link rel="icon" type="image/png" href="../Images/favicon64x64.png">
+<link rel="icon" type="image/png" href="../Images/favicon32x32.png">
+</head>
+<body>
+<h1>Cronjobs / Automatisierung des Shell Skripts</h1>
+<div class="text">
+<b>a)</b>
+<br />
+Mit dem daemon cron lassen sich Kommandos oder Skripte automatisch zu bestimmten Zeiten bzw. in bestimmten Intervallen ausführen.
+EIn cronjob beinhaltet das auszuführende Kommando und die zeitlichen Parameter zur Ausführung des Kommandos.
+Dabei prüft cron jede Minute, ob ein sog. crontab auszuführen ist.
+<br />
+In diesem Fall wird das Skript von <a id="aufgabe9" href="Aufgabe9-Automatisierung.html">Aufgabe 10</a> jeden Tag
+um 12:00 Uhr ausgeführt.
+<br />
+<b>b)</b>
+<br />
+<code>* 11 * * * stefan /home/Desktop/updateAndScan.sh > home/stefan/Documents/cronlog/cron.log 2>&1</code>
+<br />
+Der erste Teil, also
+<br />
+<code>* 11 * * * stefan /home/Desktop/updateAndScan.sh</code>
+<br />
+beinhaltet den eigentlichen cronjob bzw. crontab.
+<br />
+Durch das Ungleichheitszeichen wird sognalisiert, dass der output des cronjobs in die nachfolgende Datei geschrieben werden soll.
+<br />
+Der letzte Teil des Skripts signalisiert, dass auch errors der Stufe 2 in cron.log geschrieben werden sollen, da sonst eine extra Datei nötig wäre.
+<br />
+<b>c)</b>
+<br />
+<p style="color: red">hier noch beweisen, dass es funktioniert</p>
+</div>
+</body>
+</html>

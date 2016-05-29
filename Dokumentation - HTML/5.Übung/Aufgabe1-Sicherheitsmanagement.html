@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="../../StyleSheet.css">
+<title>Aufgabe 1 - SicherheitsManagement: Anwendung des
+	Prozesses Sichere Entwicklung - Teilaufgaben a - d</title>
+<link rel="icon" type="image/png" href="../Images/favicon400x400.png">
+<link rel="icon" type="image/png" href="../Images/favicon64x64.png">
+<link rel="icon" type="image/png" href="../Images/favicon32x32.png">
+</head>
+<body>
+	<h1>Sichere Entwicklung eines Softwaresystems</h1>
+	<div>
+		<b>b)</b> <br /> <br /> VIVA-DS unterscheidet drei Grundrisiken, die
+		es zu vermeiden gilt: <br /> Verlust der: <br />
+		<dl>
+			<dt>Verfügbarkeit</dt>
+			<dd>
+				Hierbei soll sichergestellt werden, dass Daten dem User zugänglich
+				sind und dies nicht durch nicht-funktionierende Soft- bzw. Hardware
+				gefährdet wird. <br /> Ein konkretes Risiko wäre hier bspw. ein
+				Krypto-Trojaner, auch ransomware genannt. Ein solcher Trojaner
+				verschlüsselt Daten auf der Festplatte des Users und will zur
+				Wiederherstellung des Zugangs oft eine Bezahlung. <br /> Dies soll
+				durch regelmäßige Backups, Kontrolle der Server-Infrastruktur und
+				ein entsprechendes Zugriffsrechtekonzept gewährleistet werden.
+			</dd>
+			<dt>Integrität</dt>
+			<dd>
+				Die Daten des Unternehmens sollen nicht durch unbefugte Dritte
+				modifiziert werden. Auch die Soft- bzw. Hardware soll nicht
+				verfälscht werden. <br /> Die Integrität der Daten soll durch eine
+				gut konfigurierte Firewall, Verwendung von open-source Software (je
+				nach Möglichkeit) und ein entsprechendes Zugriffsrechtekonzept
+				sichergestellt werden. <br /> <br /> Hierbei können zwei Arten von
+				unbefugtem Zugriff unterschieden werden: interner und externer. <br />
+				Externer unbefugter Zugriff könnte bspw. durch einen Hacker
+				geschehen, der sich durch schwache Passwörter, Sicherheitslücken
+				oder sog. <i>backdoors</i> in Software in unser System eingeschleust
+				hat und nun Daten modifiziert oder im Extremfall löscht. <br />
+				Interner unbefugter Zugriff könnte durch einen Angreifer, der sich
+				z.B. als Personalchef ausgibt, geschehen. Dabei könnte der Angreifer
+				einem MA zuschauen, wie er sein Passwort eingibt und sich dadurch
+				Zugriff zum System verschaffen.
+			</dd>
+			<dt>Vertraulichkeit</dt>
+			<dd>
+				Bei der Vertraulichkeit soll darauf geachtet werden, dass nur
+				berechtige Personen Zugriff auf Daten haben. Konkret sollen also
+				alle User, die nicht auf der Liste der Zugriffsberechtigten haben,
+				keinen Zugriff auf die Daten haben. <br /> Dies soll insbesondere
+				durch ein Zugriffsrechtekonzept sowie Schulung der Mitarbeiter
+				realisiert werden.
+			</dd>
+			<dt>Authentizität</dt>
+			<dd>
+				Authentizität ist die Kontrolle der Echtheit von Daten. Es soll
+				sichergestellt werden, dass z.B. ein Dokument aus der genannten
+				Quelle kommt. Insbesondere bei Daten, die von Dritten stammen, ist
+				dies von hoher Bedeutung. <br /> Dies kann durch verschlüsselte
+				Kommunikation oder Zertifikate sichergestellt werden. Bestenfalls
+				eine Kombination aus beidem.
+			</dd>
+		</dl>
+		<p style="color: red;">Hier noch was zu Datenschutz</p>
+		<a id=“quelle“ href="https://datenschutz-berlin.de/content/technik/begriffsbestimmungen/verfuegbarkeit-integritaet-vertraulichkeit-authentizitaet">Quelle</a> <br /> <br /> <b>c)</b> <br />
+		<dl>
+			<dt>
+				<b>Risiko #1:</b> Physischer Einbruch in Serverraum
+			</dt>
+			<dt>
+				<b>Risiko #2:</b> Feuer im Serverraum
+			</dt>
+			<dt>
+				<b>Risiko #3:</b> Ein Einbrecher dringt in Büros ein
+			</dt>
+			<dt>
+				<b>Risiko #4:</b> Die Intrusion Detection entdeckt unbefugten
+				Zugriff auf Datenbank von außen
+			</dt>
+			<dt>
+				<b>Risiko #5:</b> Ein Mitarbeiter der Personalabteilung lädt Dateien
+				aus dem Internet herunter
+			</dt>
+			<dt>
+				<b>Risiko #6:</b> Die Datenbank ist korrupt
+			</dt>
+			<dt>
+				<b>Risiko #7:</b> Die Datenbank enthält falsche Werte, wie
+				Urlaubstage = 9999
+			</dt>
+			<dt>
+				<b>Risiko #8:</b> Ein Hacker verschafft sich Zugriff zum System und
+				entwendet Daten
+			</dt>
+			<dt>
+				<b>Risiko #9:</b> Ein Mitarbeiter lädt einen Krypto-Trojaner runter,
+				der die DB verschlüsselt
+			</dt>
+			<dt>
+				<b>Risiko #10:</b> Die Hardware der Server fällt aus
+			</dt>
+		</dl>
+		<br /> <img src="../Images/Risiko_Tabelle.PNG" alt="Risikotabelle"
+			width="600px" height="150px" /> <br /> <br /> <b>d)</b> <br /> <br />
+		<b>Kommunikation intern:</b> <br /> Alle Mitarbeiter sollen zur
+		Kommunkation firmenintern einen hauseigenen,verschlüsselten VPN-Dienst
+		nutzen. Hierdurch wird die Echtheit (Authentizität) der Kommunikation,
+		bzw. der übertragenen Daten, sichergestellt. Außerdem kann die
+		Kommunikation der Mitarbeiter geloggt werden, was in Streitfällen als
+		Beweis genutzt werden kann. <br /> <b>Kommunikation extern:</b> <br />
+		Zur Kommunikation bspw. mit dem www oder E-Mail soll der
+		Mozilla-Thunderbird Mail Client und der Mozilla Firefox Web Browser
+		mit entsprechenden Add-Ons (<a id="blatt3Link"
+			href="../3.Übung/Aufgabe3-Sicherheitserhoehende-Erweiterung.html">siehe
+			Übungsblatt 3 Aufgabe 3</a>) genutzt werden. <br /> Des Weiteren soll
+		eine Firewall installiert und konfiguriert sein.<br /> <b>Datenbank-System</b>
+		<br /> Als DBS soll Firebird zum Einsatz kommen, da dies als
+		open-source DBS vertrauenswürdiger als verbreitete DB-Systeme wie
+		Microsoft Access ist. Da in der DB Personaldaten gespeichert werden
+		ist ebenfalls auf den Zugriff zu achten. Daher soll nur verschlüsselt
+		mit der Datenbank kommuniziert werden dürfen. <br /> Zudem sollte
+		täglich ein Backup der DB angefertigt werden und das Backup
+		vervielfältigt werden. <br /> <b>Virenschutz</b> <br /> Als
+		Virenschut soll auf den/dem Serversystem(en) selbst ClamAV installiert
+		werden. Am gateway soll auf ein geeignetes, von ClamAV verschiedenes,
+		Anti-Viren-Programm installiert werden. Dadurch minimieren wir das
+		Risiko, dass ein Virenschutzprogramm einen Virus nicht erkennt. <br />
+		Ebenfalls sollen alle Mitarbeiter dazu angehalten werden, aus dem
+		Internet heruntergeladenen Dateien mittels <a id="virusTotal"
+			href="http://www.virustotal.com">VirusTotal</a> zu überprüfen. <br />
+		<b>Schutz des Serverraums</b> <br /> Der Serverraum soll mit
+		vernetzten Brandmeldern ausgestattet werden, die im Brandfall von sich
+		aus die Feuerwehr verständigen. Ebenfalls sollen beim Zutritt und beim
+		Verlassen des Serverraums die entsprechenden Personen gewogen werden,
+		damit diese nicht unbemerkt etwas in den Serverraum schmuggeln. <br />
+		Ferner soll gegen Einbrecher ein Bewegungsmelder und eine
+		Wärmebildkamera installiert werden. <br /> <br /> <br />
+	</div>
+	<div id="Navigation">
+		<a href="../Index.html" id="link-up">Zurück zum Index</a>
+	</div>
+</body>
+</html>

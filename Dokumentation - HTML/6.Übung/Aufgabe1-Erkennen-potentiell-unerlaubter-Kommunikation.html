@@ -3,9 +3,37 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="../../StyleSheet.css">
-<title>Insert title here</title>
+<title>Aufgabe 1 - Erkennen potentiell unerlaubter Kommunikation</title>
+<link rel="icon" type="image/png" href="../Images/favicon400x400.png">
+<link rel="icon" type="image/png" href="../Images/favicon64x64.png">
+<link rel="icon" type="image/png" href="../Images/favicon32x32.png">
 </head>
 <body>
-<div></div>
+<h1>Identifizierung von Kommunikation / netstat</h1>
+<div>
+<b>a)</b>
+<br />
+Mit dem Befehl
+<br />
+<code>netstat -taupen</code>
+<br />
+können alle derzeit aktiven Prozesse anzeigen, die Verbindungen akzeptieren.
+<br />
+<img id="netstat-taupen" width="600px"  height="400px" alt="netstat -taupen" src="../Images/screenshot_netstat_taupen.png" />
+<br />
+<br />
+<b>b)</b>
+<br />
+Erneut können sich mit dem Tool netstat alle ausgehenden TCP-Verbindungen angezeigt werden:
+<br />
+<code>netstat -nptw</code>
+<br />
+Hier wurde beispielsweise die Webseite der Hochschule münchen hm.edu aufherufen.
+<br />
+<img id="netstat-nptw" width="600px"  height="400px" alt="netstat -nptw" src="../Images/screenshot_netstat_tcp_outgoingTcp_connections.png" />
+</div>
+<div id="Navigation">
+		<a href="Index6.html" id="link-up">Zurück zum Index</a>
+	</div>
 </body>
 </html>
