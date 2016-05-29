@@ -6,7 +6,26 @@
 <title>Insert title here</title>
 </head>
 <body>
-<div></div><div id="Navigation">
+<div>
+<ul style="list-style-type: none;">
+<li>Ein "Web of Trust" (kurz: WOT) wird fürs Schlüsselmanagement, der Weiterleitung von Schlüsseln und deren Zertifzierung verwendet.
+	<br> Wenn in einem WOT ein Benutzer den Schlüssel eines anderes Benutzers vertraut, dann vertraut er auch allen Schlüssel, welche von diesem Benutzer signiert wurden.
+</li>
+<li>Zunächst erstellen wir 3 Benutzer, damit wir das WOT simulieren können.</li>
+<li>Unter Windows verwenden wir dazu den Befehl <code>net user /add &#60;benutzername&#62;  </code></li>
+<li><img src="../Images/its-wot-users.png"></li>
+<li>Dann führen wir für jeden Benutzer mit dem befehl <code> runas /user:&#60;benutzername&#62; gpa</code> gpa (eine Graphische Öberfläche für gpg) aus und erstellen für jeden Beutzer sein Schlüsselpaar.</li>
+<li>So ergibt sich folgende Ausgangsituation:</li>
+<li><img src="../Images/its-wot-keys-before.png" width="100%"></li>
+<li>Als nächses Exportieren wir nun den Public-Key(PK) von Bestätiger und importieren diesen beim Benutzer und setzen das Vertrauen auf Absolut</li>
+<li>Nun Exportiern wir den PK von Dummy und imporieren ihn beim Bestätiger, auch hier setzen wir das Vertrauen in den Schlüssel auf absolut.
+<br>Nun Signieren wir als Bestätiger noch den PK von Dummy.
+</li>
+<li>ALs letztes exportieren wir nun den Signierten PK von Dummy als Bestätiger und Importieren diesen beim Benutzer, der diesen Schlüssel als Gültig akzeptiert.</li>
+<li>So sieht das ganze nun aus:</li>
+<li><img src="../Images/its-wot-keys-after.png" width="100%"></li> 
+</ul>
+</div><div id="Navigation">
 		<a href="Index4.html" id="link-up">Zurück zum Index</a>
 	</div>
 </body>

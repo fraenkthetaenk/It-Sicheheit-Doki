@@ -6,7 +6,23 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div></div>
+	<div>
+	<ul style="list-style-type: none;">
+	<li>Bei den versuch auf das ZPA mit einer Verschlüsselten verbindung Zuzugreifen bekommt man eine Fehlermeldung, da dem Aussteller des Zertifikates für die sicher Verbindung nicht standardäßig vertraut wird.</li>
+	<li><img src="../Images/its-zpa-before.png" width="100%"></li>
+	<li>Nun Können wir das Zertifikat in due Liste der Vertrauten Zertifkate aufnehmen.</li>
+	<li><img src="../Images/its-zpa-confirm.PNG"></li>
+	<li>Nachdem wir dem Zertifikt nun Vertrauen kommen wir auch Problemlos auf die Seite des ZPA's</li>
+	<li><img src="../Images/its-zpa-after.png" width="100%"></li>
+	<li>Bei dem Besuch von www.bsi.bund.de bekommen wir keinen solchen Hinweis sondern bekommen direkt die Seite über eine gesicherte Verbinding angezeigt.</li>
+	<li><img src="../Images/its-bsi.png" width="100%"></li>
+	<li>Das liegt daran, dass der Austeller des HTTPS -Zertikates für bsi.bund.de bereits standartmäßig von Firefox vertraut wird </li>
+	<li>
+	<br>Wenn ein HTTPS-Zertifikat von einer Quelle Signiert wurde der ich bereits (standartmäßig) vertraue, so vertraue ich auch diesem Zertifkat und muss es nicht erst Bestätigen.
+	<br>Damit wird es möglich mit einer Sicheren Verbundung zu surfen ohne erst des Zertifikat einer jeden Webseite selber zu Bestätigen.
+	</li>
+	</ul>
+	</div>
 	<div id="Navigation">
 		<a href="Index4.html" id="link-up">Zurück zum Index</a>
 	</div>
