@@ -12,22 +12,29 @@
 <h1>Anwendung asymetrischer Verschlüsselung</h1>
 <div>
 <ol>
-	<li>Zuerst erstellen wir eine Textdatei, welche wir verschlüsseln wollen<br>
+	<li>Erneut erstellen wir eine Textdatei, welche verschlüsselt werden soll.<br>
 		Diese Datei hat folgenden Inhalt:<br>
 		"Diese nachricht soll assymetrisch verschlüsselt werden.!!!!"<br>
-		Und Speichern sie als "Nachricht-zur-asymmetrischen-verschlüsselung.txt", in 	"C:\Users\Frank\Desktop\UNI\4.Semester\its" ab.
+		Sie soll unter "Nachricht-zur-asymmetrischen-verschlüsselung.txt", in "C:\Users\Frank\Desktop\UNI\4.Semester\its" abgespeichert werden.
 	</li>
-	<li>Um diese Datei âsymmetrisch zu Verschlüsseln, geben wir nun <br><code>gpg -e  c:\Users\Frank\Desktop\UNI\4.Semester\its\Nachricht-zur-asymmetrischen-verschlüsselung.txt</code><br> in der console ein.</li>
-	<li>Als nächstes müssen wir die User-ID (den Namen) der Empfänger eingeben und es wird eine Verschlüsselte Datei erzeugt. (die Unverschlüsselte bleibt ebenfalls erhalten)
-		<br>
+	<li>Um diese Datei asymmetrisch zu verschlüsseln, wird nun
+	<br>
+	<code>gpg -e  c:\Users\Frank\Desktop\UNI\4.Semester\its\Nachricht-zur-asymmetrischen-verschlüsselung.txt</code>
+	<br>
+	in der Konsole eingegben.</li>
+	<li>Als nächstes wird die User-ID (der Name) des Empfängers eingeben. Es wird folgend eine Verschlüsselte Datei erzeugt. Die Unverschlüsselte bleibt erneut als Fallback bestehen.
+		<br />
+		<br />
 		<img src="../Images/asym-encript.png">
-		<br>
+		<br />
 		<br />
 		<img src="../Images/asym-dateien.png">
+		<br />
+		<br />
 	</li>
-	<li>Um die Nachricht wieder zu entschlüssel verwebdeb wird folgender Befahl verwendet <br>
+	<li>Um die Nachricht wieder zu entschlüsseln wird folgender Befehl verwendet: <br>
 	<code>gpg -d c:\Users\Frank\Desktop\UNI\4.Semester\its\Nachricht-zur-asymmetrischen-verschlüsselung.txt.gpg</code>.<br>
-		Zum entschlüsseln müssen wir dann wieder unser Passwort eingegeben und bei erfolgreicher eingabe wird der Inhalt der Datei auf der Konsole ausgegeben.<br>
+		Zum Abschließen der Entschlüsselung wird erneut das Passwort eingegeben. Bei erfolgreicher Eingabe wird der Inhalt der Datei auf der Konsole ausgegeben.<br>
 		<img src="../Images/asym-decript.png">
 	</li>
 

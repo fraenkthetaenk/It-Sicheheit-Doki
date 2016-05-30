@@ -17,11 +17,11 @@
 			<b>Symmetrische Verschlüsselung</b>
 			<ul>
 				<li>
-				Beim Symmetrischen Verfahren werden die Daten mir ein und demselben Schlüssel entschlüsselt,
-				 mit dem sie auch verschlüsselt wurden. Ein großes Problem bei diesem Verfahren ist die Übergabe des Schlüssels,
-				  da dieser nicht einfach in einer ungesicherten Verbindung übermittelt werden darf, 
-				 dass sonst die ganze Verschlüsselung gar keinen Sinn macht. Zudem braucht man für jeden Kommunikationspartner einen eigenen Schlüssel, 
-				   was sich gerade bei dem Problem mit der sichern Schlüsselübertragung sehr aufwändig werden kann. 
+				Beim Symmetrischen Verschlüsselungsverfahren werden die Daten mit ein und demselben Schlüssel entschlüsselt,
+				mit dem sie auch verschlüsselt wurden. Ein großes Problem bei diesem Verfahren ist die Übergabe des Schlüssels,
+				da dieser nicht einfach in einer ungesicherten Verbindung übermittelt werden darf, 
+				dass sonst die ganze Verschlüsselung gar keinen Sinn macht. Zudem braucht man für jeden Kommunikationspartner einen eigenen Schlüssel, 
+				was sich gerade bei dem Problem mit der sichern Schlüsselübertragung sehr aufwändig werden kann. 
 				Dieses Verfahren erinnert stark an das Cäsar-Verfahren. 
 				<!-- Ein Sender verschluesselt seine Daten und muss dem
 			Empfaenger den Schluessel zukommen lassen. Dieser kann mit diesem
@@ -36,9 +36,10 @@
 			<b>Asymmetrische Verschlüsselung</b>
 			<ul>
 				<li>
-				Bei der Asymmetrischen Verschlüsselung gibt es 2 Schlüssel.
-				Einen Public Key der jedem Zugänglich ist und einem Privat Key der geheim ist und nur der Empfänger der verschlüsselten Nachricht kennt.
-				Wenn eine Nachricht mit dem Asymetrischen Verfahren verschlüsselt werden soll, so holt sich der Sender den Öffentlichen Schlüssel des Empfängers und Verschlüsselt damit seine Nachricht.
+				Beim Asymmetrischen Verschlüsselungverfahren kommen zweierlei Schlüssel zum Einsatz.
+				<br />
+				Einen Public Key, der jedem Zugänglich ist und einem Privat Key, der geheim ist, und nur dem Empfänger der verschlüsselten Nachricht bekannt ist.
+				Wenn eine Nachricht mit dem Asymetrischen Verfahren verschlüsselt werden soll, so aquiriert der Sender den Öffentlichen Schlüssel des Empfängers und Verschlüsselt damit seine zu übermittelnden Daten.
 				Der Empfänger ist dann in der Lage diese Nachricht mit seinem Private Key zu entschlüsseln.
 				
 				<!-- Der public key beinhaltet ein
@@ -64,16 +65,16 @@
 		<li>
 			<b>Fingerprint Public Key</b>
 			<ul>
-				<li>Der Fingerabdruck des public key:
+				<li>Der Fingerabdruck des public key´s:
 			<br />
 			Der Fingerabruck des Public Keys ist eine Checksumme oder ein Hash-Wert, der Zusammen mit dem Schlüssel übertragen wird. <br/>
-			Er dient dazu um sicherzustellen, dass der Schlüssel vollständig und richtig empfangen wurde und er nicht verändet wurde. Zudem kann man dem Fingerprint auch noch ein Zertifikat hinzufügen um Sicherzustellen, das man den Key auch direkt vom (richtigen/echten) Empfänger erhält.
+			Er dient dazu, um sicherzustellen, dass der Schlüssel vollständig und richtig empfangen wurde und er nicht durch Dritte verändet wurde. Zudem kann man dem Fingerprint auch noch ein Zertifikat hinzufügen um Sicherzustellen, dass man den Key auch direkt vom (richtigen/echten) Empfänger erhält.
 			<br>
-			<a href="https://www.bsi.bund.de/DE/Themen/ITGrundschutz/ITGrundschutzKataloge/Inhalt/_content/m/m04/m04034.html">Quelle</a>
+			<a href="https://www.bsi.bund.de/DE/Themen/ITGrundschutz/ITGrundschutzKataloge/Inhalt/_content/m/m04/m04034.html">Quelle 1</a>
 			<br />
-			<a href="https://www.bsi-fuer-buerger.de/BSIFB/DE/Empfehlungen/Verschluesselung/Verschluesseltkommunizieren/Grundlagenwissen/DigitaleSignatur/digitale_signatur_node.html">Quelle</a>
+			<a href="https://www.bsi-fuer-buerger.de/BSIFB/DE/Empfehlungen/Verschluesselung/Verschluesseltkommunizieren/Grundlagenwissen/DigitaleSignatur/digitale_signatur_node.html">Quelle 2</a>
 			<br />
-			<a href="https://www.gnupg.org/gph/de/manual/x193.html">Quelle</a>
+			<a href="https://www.gnupg.org/gph/de/manual/x193.html">Quelle 3</a>
 			<br/>
 			</li>
 			</ul>
@@ -81,29 +82,30 @@
 		<li>
 			<b>Passphrase Geheimer Schlüssel</b>
 			<ul>
-				<li>Ein geheimer Schlüssel hat eine Prassphrase (Passwort), um ihn vor den Zugriff unbefugter zu schützen. Der Schutz des Privaten Schlüssel ist besonders wichtig, da sollte er einmal bekannt sein, seine ganze Kommunikation ausgelen weden kann</li>
+				<li>Ein geheimer Schlüssel hat eine Prassphrase (Passwort), um ihn vor den Zugriff Unbefugter zu schützen. <a style="color: red"> Der Schutz des privaten Schlüssels ist besonders wichtig, daher sollte er einmal bekannt sein, da mit ihm die verschlüsselte Kommunikation entschlüsselt weden kann.</a> Bitte was?</li>
 			</ul>
 		</li>
 		<li>
 			<b>Signierung Öffentlicher Schlüssel</b>
 			<ul>
-				<li>Die Signierung des Öffentlichen Schlüssel ist wichtig, da man sich ansonsten nicht sicher sein kann ob dieser Schlüssel wirklich dem Empfänger gehört, oder sich jemand zwischen den Sender und Empfänger gesetzt hat und seinen Public Key weitergeleitet hat, damit er die Nachricht entschlüsseln und lesen kann.
-				<br>Mit einer Signierung sorgt man außerdem dafür, dass die Urheberschaft des Schlüssel sicherzustellen.
+				<li>Die Signierung des Öffentlichen Schlüssel ist wichtig, da man sich sonst nicht sicher sein kann, ob dieser Schlüssel wirklich dem Empfänger gehört, oder sich jemand zwischen den Sender und Empfänger gesetzt hat und seinen Public Key weitergeleitet hat, damit er die Nachricht entschlüsseln und lesen kann. Dies kann bspw. bei einem man in the middle-Angriff der Fall sein.
+				<br>Mit einer Signierung sorgt man außerdem dafür, das die Urheberschaft des Schlüssel sichergestellt ist.
 				</li>
 			</ul>
 		</li>
 		<li>
 			<b>Widerrufs Schlüssel</b>
 			<ul>
-				<li>Mit einem Widerrufschlüssel, kann man seinen alten Schlüssel jederzeit Widerrufen und somit ungültig machen.
-				<br>Das ist eine Sicherheitsmaßnahme, mit der man dafür sorgen kann, dass keine Kommunikation mehr mit diesen Schlüssel möglich ist, sollte er kompromitiert werden.
+				<li>Mit einem Widerrufschlüssel kann man seinen alten Schlüssel jederzeit widerrufen und somit ungültig machen.
+				<br>
+				Dies ist eine Sicherheitsmaßnahme, mit der man dafür sorgen kann, dass keine Kommunikation mehr mit diesen Schlüssel möglich ist, sollte er kompromitiert werden.
 				</li>
 			</ul>
 		</li>
 		<li>
-			<b>Signierte Mail</b>
+			<b>Signierte E-Mail</b>
 			<ul>
-				<li>Bei einer Signierten Mail kann sichergestellt werden, von wem diese Mail versand wurde und ob die Datei immer noch die gleiche ist, wie beim Zeitpunkt der Signierung</li>
+				<li>Durch Verschlüsselung von E-Mails kann die Authenzitität des Senders und des Inhalts der Mail sichergestellt werden.</li>
 			</ul>
 		</li>
 		<li>
@@ -123,7 +125,7 @@
 							<ul>
 								<li>Jeder muss alle Schlüssel seiner Kommunikationspartner geheim halten</li>
 								<li>Die Schlüsselverteilung ist sehr aufwendig</li>
-								<li>Es ist nicht erkenntlich welche der beidne Parteien die Nachricht Verschlüsselt hat</li>
+								<li>Es ist nicht erkenntlich welche der beteiligten Kommunikationspartner die Nachricht Verschlüsselt hat</li>
 							</ul>
 						</li>
 					</ul>
@@ -140,8 +142,8 @@
 						<li>Nachteile:
 							<ul>
 								<li>Recht Langsam, schlechte Datendurchsatzrate</li>
-								<li>Man benötigt relativ lange Schlüssel</li>
-								<li>Die Sicherheit beruht nur auf dem Mathematischen Problem (z.B Primfaktorzerlegung großer Zahlen)</li>
+								<li>Man benötigt relativ lange Schlüssel (min. 128 bit)</li>
+<!-- 								<li>Die Sicherheit beruht nur auf dem Mathematischen Problem (z.B Primfaktorzerlegung großer Zahlen)</li> -->
 								<li>Die Schlüsselerzeugung ist recht Komplex, damit keine Schwachen Schlüssel erzeugt werden</li>
 							</ul>
 						</li>
