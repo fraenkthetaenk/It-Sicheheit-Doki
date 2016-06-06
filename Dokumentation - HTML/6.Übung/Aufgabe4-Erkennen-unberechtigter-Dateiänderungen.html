@@ -3,17 +3,59 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="../../StyleSheet.css">
-<title>Aufgabe 4 -  Erkennen unberechtigter Dateiänderungen (Einbrucherkennung / Intrusion Detection)</title>
+<title>Aufgabe 4 - Erkennen unberechtigter Dateiänderungen
+	(Einbrucherkennung / Intrusion Detection)</title>
 <link rel="icon" type="image/png" href="../Images/favicon400x400.png">
 <link rel="icon" type="image/png" href="../Images/favicon64x64.png">
 <link rel="icon" type="image/png" href="../Images/favicon32x32.png">
 </head>
 <body>
-<h1>Intrusion Detection / AIDE</h1>
-<div>
-
-</div>
-<div id="Navigation">
+	<h1>Intrusion Detection / AIDE</h1>
+	<div>
+		<b>a)</b>
+		<br />
+		AIDE legt bei der ersten Ausführung eine Datenbank an, in welche der aktuelle Stand der zu sichernden Dateien 
+		(hier: /etc) abgebildet wird. Unter anderem werden hier Informationen wie Berechtigungen, Zeitpunkt	der letzten 
+		Änderung und/oder der Inhalt der Dateien festgelegt.<br />
+		Mit einem Kommando (siehe unten) vergleicht AIDE die zu überwachenden Daten mit der angelegten "Wunsch"-Datenbank.
+		Dabei vergleicht es die Prüfsumme der initialen Datenbank mit der überwachten Datei.
+		<br />
+		<br />
+		<a href="https://wiki.archlinux.org/index.php/AIDE">Quelle 1</a>
+		<br />
+		<a href="http://linuxwiki.de/AIDE">Quelle 2</a>
+		<br />
+		<b>b)</b>
+		Die Installation geschieht mit 
+		<br />
+		<code>sudo apt-get install aide</code>
+		<br />
+		<b>c)</b>
+		<br/>
+		Zuerst muss eine Initial-DB angelegt werden.
+		<br />
+		Dies kann durch
+		<br />
+		<code>sudo aide -i</code>
+		<br />
+		passieren.
+		<br />
+		Eine DB kann mit
+		<br />
+		<code>sudo aide -c /etc/aide/aide.conf  --init</code>
+		<br />
+		erzeugt werden. Allerdings wird hier in /var/lib/aide eine aude.db.new erstellt, welche mit
+		<br />
+		<code>sudo mv /var/lib/aide/aide.db.new /var/lib/aide/aide.db</code>
+		<br />
+		zur "richtigen" DB wird. Die muss jedesmal getan werden, wenn durch aide --update ein neues Abbild der Verzeichnisse
+		angelegt wird.
+		<br />
+		In /etc/aide/aide.conf können unter den DB-Pfaden die AIDE-Regeln definiert werden. In diesem Fallbeispiel soll nur
+		/etc überprüft werden.
+		<br />
+	</div>
+	<div id="Navigation">
 		<a href="Index6.html" id="link-up">Zurück zum Index</a>
 	</div>
 </body>
