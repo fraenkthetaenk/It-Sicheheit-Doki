@@ -13,6 +13,7 @@
 <h1>Kommunikationskontrolle</h1>
 	<div class="text">
 		<b>a)</b> 
+		<br />
 		Mit Firewalls kann man den Datentraffic in einem Netzwerk
 		beobachten und kontrollieren. Die Standrd-Firewall-Lösung unter Linux
 		heißt "netfilter", welche seit Kernel-Version 2.4 in Linux integriert
@@ -106,50 +107,73 @@
 				geroutet wurden) und FORWARD (für abgeänderte Pakete, die durch die
 				Box geroutet werden)</dd>
 		</dl>
-		<br /> Mit dem Befehl <br />
+		<br /> Mit dem Befehl
+		<br />
 		<code># sudo iptables -nvL</code>
-		<br /> können die aktuellen regeln der Default-Tabelle eingesehen
+		<br /> 
+		können die aktuellen regeln der Default-Tabelle eingesehen
 		werden.<img src="../Images/screenshot_no_iptable_rules.png"
-			alt="no rules" style="width: 633px; height: 653px;"><br />Abb.
-		1: Keine Regeln in der Standardkonfiguration <br /> <br /> Mit dem
-		Befehl<br />
-		<code># sudo iptables -N chainName</code>
-		<br /> lässt sich eine benutzer-definierte Kette erstellen. Mit ihnen
-		werden Ports in der Firewall geöffnet. Es empfiehlt sich, zwei Ketten
-		für die beiden Kommunikationsarten TCP und UDP zu erstellen.<br />Die
-		policy der FORWARD-Kette soll Pakete durchlassen. Dies geschieht mit<br />
+		alt="no rules" style="width: 633px; height: 653px;">
+		<br />
+		Abb.
+		1: Keine Regeln in der Standardkonfiguration 
+		<br /> 
+		<br /> 
+		
+		<br />
+		
+		<br /> 
+		<br /><b>b)</b>
+		<br />Die	policy der FORWARD-Kette soll Pakete durchlassen. Dies geschieht mit
+		<br />
 		<code># sudo iptables -P FORWARD DROP</code>
-		<br /> Die ausgehende Kommunikation soll nicht behindert werden,
-		daher stellen wir die OUTPUT-policy auf ACCEPT.<br />
+		<br />
+		Die ausgehende Kommunikation soll nicht behindert werden,
+		daher stellen wir die OUTPUT-policy auf ACCEPT.
+		<br />
 		<code># sudo iptables -P OUPUT ACCEPT</code>
-		<br /> Die policy der INPUT-Kette soll, um umgsp. auf Nummer sicher
+		<br /> 
+		Die policy der INPUT-Kette soll, um umgsp. auf Nummer sicher
 		zu gehen, Pakete verwerfen, da sie i.d.R. schon durch eine vorgehende
-		Regel behandelt sein sollten. <br />
+		Regel behandelt sein sollten.
+		<br />
 		<code># sudo iptables -P INPUT DROP</code>
-		<br />Die erste Regel der INPUT-Kette behandelt das
+		<br />
+		Die erste Regel der INPUT-Kette behandelt das
 		loopback-interface, welches für die korrekte Funktionsweise einiger
-		Daemons und Anwendungen benötigt wird.<br />
+		Daemons und Anwendungen benötigt wird.
+		<br />
 		<code># sudo iptables -A INPUT -i lo -j ACCEPT</code>
-		<br />Die Zweite lässt für das ICMP-Protokoll wichtige Funktionen zu
-		wie bspw. die TCP-Staukontrolle und das managen von MTUs.<br />
+		<br />
+		Die Zweite lässt für das ICMP-Protokoll wichtige Funktionen zu
+		wie bspw. die TCP-Staukontrolle und das managen von MTUs.
+		<br />
 		<code># sudo iptables -A INPUT -m conntrack --ctstate
 			RELATED,ESTABLISHED -j ACCEPT</code>
-		<br /> Die dritte Regel verwirft alle Pakete, dessen Addressen
+		<br /> 
+		Die dritte Regel verwirft alle Pakete, dessen Addressen
 		fehlerhaft sind, ergo bspw. ein falscher Header oder eine falsche
-		Prüfsumme besitzen.<br />
+		Prüfsumme besitzen.
+		<br />
 		<code># sudo iptables -A INPUT -m conntrack --ctstate INVALID
 			-j DROP</code>
-		<br />Durch Anwendung dieser Regel wird die Firewall erst zu einer
-		zustands-orienterten.<br />Die nächste und vierte Regel lässt pings,
+		<br />
+		Durch Anwendung dieser Regel wird die Firewall erst zu einer
+		zustands-orienterten.
+		<br />Die nächste und vierte Regel lässt pings,
 		auch bekannt als ICMP-Echos, zu. Diese werden benutzt, um zu
-		überprüfen, ob ein Rechner erreichbar ist.<br />
+		überprüfen, ob ein Rechner erreichbar ist.
+		<br />
 		<code># sudo iptables -A INPUT -p icmp --icmp-type 8 -m
 			conntrack --ctstate NEW -j ACCEPT</code>
-		<br /> <br />Nun kommen die anfangs erstellten, benutzer-definierten
-		Ketten zur Verwaltung von TCP- und UDP-Kommunikation zu Trage.<br />Da
+		<br />
+		<br />Nun kommen die anfangs erstellten, benutzer-definierten
+		Ketten zur Verwaltung von TCP- und UDP-Kommunikation zu Trage.
+		<br />Da
 		TCP-Verbindungen vor der Kommunikation aufgebaut werden, sollen
 		SYN-Pakete angenommen werden. UDP-Verbindungen sollen direkt
-		angenommen werden.<br />TCP:
+		angenommen werden.
+		<br />TCP:
 		<code># sudo iptables -A INPUT -p tcp --syn -m conntrack
 			--ctstate NEW -j TCP</code>
 		<br />UDP:
@@ -160,30 +184,25 @@
 		ein ICMP-port-unreachable-Paket zugesandt.<br />TCP:
 		<code># sudo iptables -A INPUT -p tcp -j REJECT --reject-with
 			tcp-reset</code>
-		<br />UDP:
+		<br />
+		UDP:
 		<code># sudo iptables -A INPUT -p udp -j REJECT --reject-with
 			icmp-port-unreachable</code>
-		<br /> Als neunte und letzte Regel soll jedes Paket, dass bis jetzt
-		noch nicht behandelt wurde, abgelehnt werden.<br />
+		<br /> 
+		Als neunte und letzte Regel soll jedes Paket, dass bis jetzt
+		noch nicht behandelt wurde, abgelehnt werden.
+		<br />
 		<code># sudo iptables -A INPUT -j REJECT --reject-with
 			icmp-proto-unreachable</code>
-		<br /> <br />Die so eben beschriebene Firewall sieht nun so aus:<br />
+		<br /> 
+		<br />
+		Die so eben beschriebene Firewall sieht nun so aus:
+		<br />
 		<img width="600px"  height="400px" 
 			src="../Images/screenshot_iptable_rules_simple_config.png"
 			alt="simple config"><br />
-		Abb. 2: Einfache Konfiguration <br /> <br /> <br /> <b>b)</b> Die
-		sicherste Konfiguration ist die, die keine Kommunikation von und nach
-		außen zulässt. Ausgenommen sind hier Systemdienste, was über das
-		loopback-interface realisiert wird. Hierzu wird die policy der
-		OUTOUT-Kette auf "DROP" gesetzt und als einzige Regel verbleibt der
-		INPUT-Kette<br />
-		<code># sudo iptables -A INPUT -i lo -j ACCEPT</code>
-		<br />Bisherige Regeln können mit<br />
-		<code>
-			# sudo iptables -D <i>kettenName</i> <i>zeilennummer</i>
-		</code>
-		<br />gelöscht werden.<br /> <br /> <b><img width="600px" height="400px" src="../Images/screenshot_iptabels_max_sec.png">
-			</b><br />Abb. 3: Konfiguration mit maximaler Sicherheit<br />
+		Abb. 2: Einfache Konfiguration <br /> 
+		<br />
 		<br /> <br /> <a
 			href="https://wiki.archlinux.org/index.php/simple_stateful_firewall">Quelle
 			1 für iptables Regeln</a><br /> <a
