@@ -65,3 +65,10 @@ code {
 	color: #4285F4;
 	display: table-row;
 }
+
+table, tr, th, td{
+	border-style: solid;
+	border-color:black;
+	border-collapse: collapse; 
+	
+}

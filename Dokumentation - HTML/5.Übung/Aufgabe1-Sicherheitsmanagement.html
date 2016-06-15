@@ -14,10 +14,12 @@
 	<div>
 		<b>a)</b> <br /> <br />Ausgangssituation:
 		<ul style="list-style: none;">
-			<li>2 Frimenstandorte</li>
+			<li>Mittelständige, weltweitagierende Firma mit 2 Standorten</li>
+			<li>Ein Elektonisches Personalsystem ist gewüncht</li>
+			<li>Zugriff sollen Führunkskräfte und die Personalabteilung haben (einsehen, auswerten und verändern)</li>
+			<li>Personaldaten haben einen öffentlichen Teil (Name und Firmendaten) sowie Privatdaten (Addresse, Bankverbindung)</li>
 			<li>Trennung von Server und Client Räumlich aber nicht geographisch</li>
 			<li>Kommunikation über eine Ungesicherte Internetverbindung</li>
-			<li>Ein Datensatz beinhaltet öffentliche und Private Daten</li>
 		</ul>
 		
 		<br>
@@ -26,7 +28,7 @@
 		<b>b)</b> <br /> <br /> VIVA-DS unterscheidet vier Grundrisiken, die
 		es zu vermeiden gilt: <br /> Verlust der: <br />
 		<dl>
-			<dt>Verfügbarkeit (normal)</dt>
+			<dt>Verfügbarkeit</dt>
 			<dd>
 				Hierbei soll sichergestellt werden, dass Daten dem User zugänglich
 				sind und dies nicht durch nicht-funktionierende Soft- bzw. Hardware
@@ -37,7 +39,7 @@
 				durch regelmäßige Backups, Kontrolle der Server-Infrastruktur und
 				ein entsprechendes Zugriffsrechtekonzept gewährleistet werden.
 			</dd>
-			<dt>Integrität (sehr hoch)</dt>
+			<dt>Integrität</dt>
 			<dd>
 				Die Daten des Unternehmens sollen nicht durch unbefugte Dritte
 				modifiziert werden. Auch die Soft- bzw. Hardware soll nicht
@@ -55,7 +57,7 @@
 				einem MA zuschauen, wie er sein Passwort eingibt und sich dadurch
 				Zugriff zum System verschaffen.
 			</dd>
-			<dt>Vertraulichkeit (hoch)</dt>
+			<dt>Vertraulichkeit</dt>
 			<dd>
 				Bei der Vertraulichkeit soll darauf geachtet werden, dass nur
 				berechtige Personen Zugriff auf Daten haben. Konkret sollen also
@@ -64,7 +66,7 @@
 				durch ein Zugriffsrechtekonzept sowie Schulung der Mitarbeiter
 				realisiert werden.
 			</dd>
-			<dt>Authentizität (hoch)</dt>
+			<dt>Authentizität</dt>
 			<dd>
 				Authentizität ist die Kontrolle der Echtheit von Daten. Es soll
 				sichergestellt werden, dass z.B. ein Dokument aus der genannten
@@ -74,43 +76,82 @@
 				eine Kombination aus beidem.
 			</dd>
 		</dl>
-		<p style="color: red;">Hier noch was zu Datenschutz</p>
+	<br>
+	Einstufungs Kriterien:
+	<dl>
+		<dt><b>Normal</b></dt>
+			<dd>Wenn diese Anforderung verletzt wird, schadet das zwar dem Unternehemen hat aber nur einem minimalen Einfluss auf das Geschäftsleben.</dd>
+		
+		<dt><b>Hoch</b></dt>
+			<dd>Die Anforderung ist wichtig für das Unternehmen und kann beu Verletzen dem Unternehmen einen erheblichen Schaden zufügen, dieser ist aber nicht existenzgefährdend.</dd>
+		<dt><b>Sehr Hoch</b></dt>
+			<dd>Nur extrem wichtige Anforderungen werden als Sehr Hoch deklariert, wenn hier ein Schaden entsteht kostet das dem Unternehmen sehr viel und es kann sogar existenzgefährdend werden.</dd>
+			
+	</dl>
+	
+	<table>
+		<tr>
+			<th>Anforderung</th><th>Einstufung</th><th>Begründung</th>
+		<tr>
+		<tr>
+			<td>Verfügbarkeit</td>
+			<td>Normal</td>
+			<td>Sollte das Personalsystem mal ausfallen beinträchtigt das zwar das Geschäftsleben, stört das Kerngeschäft des Unternehmens aber nicht.</td>
+		</tr>
+		<tr>
+			<td>Integrität</td>
+			<td>Sehr Hoch</td>
+			<td>Sollten die Personaldaten von außen verwändert werden, ist das ein großes Problem für das Unternehemen, so könnten zum Beispiel Kontodaten verändert werden und die Mitarneiter kein Gehalt mehr bekommen, Mitarbeiter gefeuert werden oder soger einem unberrechtigten 3. Zugang zum Gelände (Personalausweis Indentifikation) verschafft werden.</td>
+		</tr>
+		<tr>
+			<td>Vertraulichkeit</td>
+			<td>Normal</td>
+			<td>Wenn die Daten von unberrechtigten Personen gelesen werden können ist das zwar nicht schön und kann evt. zu Gehaltsdikussionen führen stellt aber auch keine weiter Gefahr für das Unternehemn dar.</td>
+		</tr>
+		<tr>
+			<td>Authentizität</td>
+			<td>Hoch</td>
+			<td>Wenn man mit falschen Daten im Personalsystem arbeitet, kann das erhebliche auswirkungen auf das Unternehmen haben. Unterandem kann man die falsche Bankverbindung oder Namen bekommen.</td>
+		</tr>
+	</table>
+	
+	
 		<a id=“quelle“ href=" https://datenschutz-berlin.de/content/technik/begriffsbestimmungen/verfuegbarkeit-integritaet-vertraulichkeit-authentizitaet">Quelle</a> <br /> <br /> <b>c)</b> <br />
 		<dl>
 			<dt>
-				<b>Risiko #1:</b> Physischer Einbruch in Serverraum
+				<b>Gefahr #1:</b> Physischer Einbruch in Serverraum
 			</dt>
 			<dt>
-				<b>Risiko #2:</b> Feuer im Serverraum
+				<b>Gefahr #2:</b> Feuer im Serverraum
 			</dt>
 			<dt>
-				<b>Risiko #3:</b> Ein Einbrecher dringt in Büros ein
+				<b>Gefahr #3:</b> Ein Einbrecher dringt in Büros ein
 			</dt>
 			<dt>
-				<b>Risiko #4:</b> Die Intrusion Detection entdeckt unbefugten
+				<b>Gefahr #4:</b> Die Intrusion Detection entdeckt unbefugten
 				Zugriff auf Datenbank von außen
 			</dt>
 			<dt>
-				<b>Risiko #5:</b> Ein Mitarbeiter der Personalabteilung lädt Dateien
+				<b>Gefahr #5:</b> Ein Mitarbeiter der Personalabteilung lädt Dateien
 				aus dem Internet herunter
 			</dt>
 			<dt>
-				<b>Risiko #6:</b> Die Datenbank ist korrupt
+				<b>Gefahr #6:</b> Die Datenbank ist korrupt
 			</dt>
 			<dt>
-				<b>Risiko #7:</b> Die Datenbank enthält falsche Werte, wie
+				<b>Gefahr #7:</b> Die Datenbank enthält falsche Werte, wie
 				Urlaubstage = 9999
 			</dt>
 			<dt>
-				<b>Risiko #8:</b> Ein Hacker verschafft sich Zugriff zum System und
+				<b>Gefahr #8:</b> Ein Hacker verschafft sich Zugriff zum System und
 				entwendet Daten
 			</dt>
 			<dt>
-				<b>Risiko #9:</b> Ein Mitarbeiter lädt einen Krypto-Trojaner runter,
+				<b>Gefahr #9:</b> Ein Mitarbeiter lädt einen Krypto-Trojaner runter,
 				der die DB verschlüsselt
 			</dt>
 			<dt>
-				<b>Risiko #10:</b> Die Hardware der Server fällt aus
+				<b>Gefahr #10:</b> Die Hardware der Server fällt aus
 			</dt>
 		</dl>
 		<br /> <img src="../Images/Risiko_Tabelle.PNG" alt="Risikotabelle"
