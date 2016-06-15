@@ -18,7 +18,7 @@
 			<li>Ein Elektonisches Personalsystem ist gewüncht</li>
 			<li>Zugriff sollen Führunkskräfte und die Personalabteilung haben (einsehen, auswerten und verändern)</li>
 			<li>Personaldaten haben einen öffentlichen Teil (Name und Firmendaten) sowie Privatdaten (Addresse, Bankverbindung)</li>
-			<li>Trennung von Server und Client Räumlich aber nicht geographisch</li>
+			<li>Trennung von Server und Client räumlich aber nicht geographisch</li>
 			<li>Kommunikation über eine Ungesicherte Internetverbindung</li>
 		</ul>
 		
@@ -77,13 +77,13 @@
 			</dd>
 		</dl>
 	<br>
-	Einstufungs Kriterien:
+	<b>Einstufungs Kriterien:</b>
 	<dl>
 		<dt><b>Normal</b></dt>
-			<dd>Wenn diese Anforderung verletzt wird, schadet das zwar dem Unternehemen hat aber nur einem minimalen Einfluss auf das Geschäftsleben.</dd>
+			<dd>Wenn diese Anforderung verletzt wird, schadet das zwar dem Unternehmen, hat aber keinen bedrohenden Einfluss auf das Geschäftsleben.</dd>
 		
 		<dt><b>Hoch</b></dt>
-			<dd>Die Anforderung ist wichtig für das Unternehmen und kann beu Verletzen dem Unternehmen einen erheblichen Schaden zufügen, dieser ist aber nicht existenzgefährdend.</dd>
+			<dd>Die Anforderung ist wichtig für das Unternehmen und kann bei Verltzung dem Unternehmen einen erheblichen Schaden zufügen. Dieser ist aber nicht existenzgefährdend.</dd>
 		<dt><b>Sehr Hoch</b></dt>
 			<dd>Nur extrem wichtige Anforderungen werden als Sehr Hoch deklariert, wenn hier ein Schaden entsteht kostet das dem Unternehmen sehr viel und es kann sogar existenzgefährdend werden.</dd>
 			
@@ -157,36 +157,36 @@
 		<br /> <img src="../Images/Risiko_Tabelle.PNG" alt="Risikotabelle"
 			width="600px" height="150px" /> <br />
 			<b>Begründung Risoko Einstufung</b>
-			<ol>
+			<ol class="list" style="list-style: decimal;">
 				<li>Ein Einbruch ist aufgrund unser Sicherheitsvorkerhurngen sehr unwarscheinlich.<br>
-					Sollte einer Gelingen könnten all unsere Daten entwendet oder Zerstört werden. -> Kritisch	
+					Sollte ein Einbruch stattfinden, könnten all unsere Daten entwendet oder zerstört werden. -> Kritisch
 				</li>
-				<li>Ein Feuer im Serverraum ist aufgrund unsere Brandschuzmaßnahemn und der positionierung des Serverraums hinter Branschutztüren sehr unwarscheinlich.<br>
-					Ein Feuer würde unsere Kompletten Daten Zerstören -> Kritisch
+				<li>Ein Feuer im Serverraum ist aufgrund unsere Brandschuzmaßnahemn und der Positionierung des Serverraums hinter Branschutztüren sehr unwarscheinlich.<br>
+					Ein Feuer würde unsere Serverräume und die Produktiv-DB zerstören. Die Daten wären zwar durch ein Backup nicht verloren, jedoch müssen Server neu beschafft werden. -> Kritisch
 				</li>
-				<li>Das jemand ins Büro einbricht ist dank unsers Sicherheispersonal unwarscheinlich<br>
-					Ein Einbrecher kann offene Akten entwenden, was je nach Akte viel Schaden verursachen -> Hoch
+				<li>Ein physischer Einbruch ist durch unsers Sicherheispersonal unwarscheinlich.<br>
+					Ein Einbrecher kann offene Akten entwenden, was je nach Akte viel Schaden verursachen könnte -> Hoch
 				</li>
-				<li>Ein Unebugter Zugriff von außen auf unsere System ist kommt kaum vor, da unsere Firewall in der Lage ist die Meisten dieser Zugriffsversuche zu unterbinden<br>
-					Ein Hacker kann dann einig unserer Daten löschen und Kompromitieren, da unser Backup auf einen Server liegt der nicht mit dem Internet verbunden ist, ist das Schadenspotential "nur" Hoch. 
+				<li>Ein unebugter Zugriff von außen auf unsere System ist unwahrscheinlich, da unsere Firewall in der Lage ist, die meisten dieser Zugriffsversuche zu unterbinden.<br>
+				
 				</li>
-				<li>Daten werden Regelmäßig von unseren Mitarbeitern aus dem Internet heruntergeladen, uns seien es auch nur die Online-Bewerbungen<br>
+				<li>Daten werden regelmäßig von unseren Mitarbeitern aus dem Internet heruntergeladen, wie z.B. Bewerbungsschreiben<br>
 					Das Schadenspotential hält sich dank dem Virenscanner und regelmäßiger Mmitarbeiterschulungen in Grenzen -> Gering
 				</li>
 				<li>Bei jeder Eingabe von Daten in die Datenbank werden diese ersteinmal validiert.<br>
-					Aufgrund dieser Validierung ist unwarscheinlihc, dass unsere Datenbank korrupiert wird, sollte dies aber Trotzdem vorkommmen, könnten all unsere Daten verändert werden, was den Mitarbeitern nicht umbedingt sofort aufallen muss Schadenspotiential ->kritisch
+					Aufgrund dieser Validierung ist unwarscheinlich, dass unsere Datenbank korrupiert wird. Sollte dies aber dennoch vorkommmen, könnten all unsere Daten verändert werden, was den Mitarbeitern nicht umbedingt sofort aufallen muss. Schadenspotiential -> kritisch
 				</li>
-				<li>Unsere Mitarbeiter sind dazu angehalten bei der Eingabe von Daten in die Datenbank besondere Vorsicht walten zu lassen, auch wenn diese auch noch vom System validiert werden<br>
-					Ein falsch ausgefülltest Feld in der Datenbank wird im Normalfall schnell von einem Unser Mitarbeiter entdeckt und dann auch gemeldet, somit hält sich der Schaden 	in grenzen -> Normal
+				<li>Unsere Mitarbeiter sind dazu angehalten, bei der Eingabe von Daten in die Datenbank besondere Vorsicht walten zu lassen, auch wenn diese auch noch vom System validiert werden<br>
+					Ein falsch ausgefülltest Feld in der Datenbank wird im Normalfall schnell von einem Unser Mitarbeiter entdeckt und dann auch gemeldet, somit hält sich der Schaden in Grenzen -> Normal
 				</li>
-				<li>Aufgrund unserer Firewall ist ein erfolgreicher Hackerangriff unwarscheinlich<br>
-					Sollte dieser Tritzdem erfolgreich sein und es ihm gelingne Daten zu entwenden ist das für unseren  Firmenruf sehr schlecht. Schadenspotential ->kritisch
+				<li>Aufgrund unserer Firewall ist ein erfolgreicher Hackerangriff unwarscheinlich.<br>
+					Sollte dieser trotzdem erfolgreich sein und es ihm gelingen, Daten zu entwenden, hat dies negative Auswirkungen auf das Unternehmensimage. Schadenspotential ->kritisch
 				</li>
-				<li>Unsere Mitarbeiter werdne geschult nur von vertrauenswürdigen Seiten herunterzuladen, außerdim ist unsere Firewall und Virenscanner auf den aktuellsten Stand, was es sehr unwarschinlich macht, dass ein Kriyptp Trojana heruntergeladne wird<br>
-					Sollte trotzdem ein Krypto-Trojanan installiert werden hat dies eimem erhebliche Auswirkungen auf unsere geschäftsprozesse ->kritisch
+				<li>Unsere Mitarbeiter werden geschult, nur von vertrauenswürdigen Seiten Dateien herunterzuladen. Außerdem ist unsere Firewall und Virenscanner auf den aktuellsten Stand, was es eine Infektion des Firmennetzwerkes durch bspw. einen Krypto-Trojaner unwahrscheinlich macht.<br>
+					Sollte trotzdem ein Krypto-Trojanan installiert werden hat dies eimem erhebliche Auswirkungen auf unsere Geschäftsprozesse -> kritisch
 				</li>
-				<li>Das die Hardware unsres Servers ausfällt ist unwarscheinlich, da wir diese Regelmäßig updaten<br>
-					Durch einen Hardware Ausfall kann die Personalabteilung eine Weile nicht Arbeiten. Dank unserer Backups auf einem Seperaten Server ist das Schadenspotential als Hoch einzuschätzen. 
+				<li>Das Ausfallrisiko von Hardware haben wir durch horchwertige Komponenten und einen hochwertigen Ausfallservice vom Server-Hersteller minimiert.<br>
+					Durch einen Ausfall der Hardware kann die Personalabteilung eine Weile nicht Arbeiten. Dank unserer Backups auf einem Seperaten Server ist das Schadenspotential als Hoch einzuschätzen. 
 				</li>
 			</ol>
 			 <br /> <br /> <b>d)</b> <br /> <br />

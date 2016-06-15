@@ -13,12 +13,12 @@
 <h1>Autorisierung</h1>
 	<div class="text">
 		<p>
-			<b>a) + b)</b> Mit dem su-Befehl kann man in den Benutzer wechseln.
-			Ohne Angabe eines Beutzernames wird Standart maßig root ausgewählt.
-			Hierbei muss man das Passwort des Nutzers eingeben.
+			<b>a) + b)</b> Mit dem su-Befehl kann man den Benutzer wechseln.
+			Ohne Angabe eines Beutzernames wird standardmaßig root ausgewählt.
+			Hierbei muss das root-Passwort des Systems eingegeben werden.
 			<br />
-			Mit dem sudo-Befehl kann ich einen Befehl mit
-			Admin-Rechten ausfuehren. Die eingabe eines Passwortes wird hierfür nicht benötigt. 
+			Mit dem sudo-Befehl kann man einen Befehl mit
+			Admin-Rechten ausfuehren. Die Eingabe eines Passwortes wird hierfür benötigt. 
 			Dies ist sinnvoll, da der Admin-(root)Modus
 			nur so kurz wie noetig benutzt werden sollte, um Schaden zu
 			vermeiden. Der User, der den sudo-Befehl ausfuehren moechte, muss vom
@@ -35,7 +35,7 @@
 			<br />
 			<code># sudo adduser <i>username</i> sudo</code>
 			<br />
-			wird der user mit sudo berechtigt und kann ab seiner nächsten Anmeldung den sudo Befehl nutzen.
+			wird der user mit sudo berechtigt und kann ab seiner nächsten Anmeldung sudo-Befehle nutzen.
 			<!-- kann ein neuer Benutzer hinzugefügt werden. In diesem Beispiel wurde der Benutzer "user" angelegt.<br />
 			Mit dem Befehl
 			<br />
