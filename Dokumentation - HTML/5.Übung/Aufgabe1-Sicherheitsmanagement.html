@@ -156,7 +156,7 @@
 		</dl>
 		<br /> <img src="../Images/Risiko_Tabelle.PNG" alt="Risikotabelle"
 			width="600px" height="150px" /> <br />
-			<b>Begründung</b>
+			<b>Begründung Risoko Einstufung</b>
 			<ol>
 				<li>Ein Einbruch ist aufgrund unser Sicherheitsvorkerhurngen sehr unwarscheinlich.<br>
 					Sollte einer Gelingen könnten all unsere Daten entwendet oder Zerstört werden. -> Kritisch	
@@ -165,47 +165,50 @@
 					Ein Feuer würde unsere Kompletten Daten Zerstören -> Kritisch
 				</li>
 				<li>Das jemand ins Büro einbricht ist dank unsers Sicherheispersonal unwarscheinlich<br>
-					Ein Einbrecher kann offene Akten entwenden, was je nach Akte viel Schaden verursachen -> hoch
+					Ein Einbrecher kann offene Akten entwenden, was je nach Akte viel Schaden verursachen -> Hoch
 				</li>
-				<li><br>
-				
+				<li>Ein Unebugter Zugriff von außen auf unsere System ist kommt kaum vor, da unsere Firewall in der Lage ist die Meisten dieser Zugriffsversuche zu unterbinden<br>
+					Ein Hacker kann dann einig unserer Daten löschen und Kompromitieren, da unser Backup auf einen Server liegt der nicht mit dem Internet verbunden ist, ist das Schadenspotential "nur" Hoch. 
 				</li>
-				<li>Wenn jemand eine Datei aus dem Internet runterläd wird diese erstmal von unseren Virenscanner geprüft somit werden die meisten verseuchten Daten bereits entdeckt<br>
-					Das Schadenspotential hält sich dank dem Virenscanner und regelmäßiger Mmitarbeiterschulungen in grenzen
+				<li>Daten werden Regelmäßig von unseren Mitarbeitern aus dem Internet heruntergeladen, uns seien es auch nur die Online-Bewerbungen<br>
+					Das Schadenspotential hält sich dank dem Virenscanner und regelmäßiger Mmitarbeiterschulungen in Grenzen -> Gering
 				</li>
-				<li><br>
-				
+				<li>Bei jeder Eingabe von Daten in die Datenbank werden diese ersteinmal validiert.<br>
+					Aufgrund dieser Validierung ist unwarscheinlihc, dass unsere Datenbank korrupiert wird, sollte dies aber Trotzdem vorkommmen, könnten all unsere Daten verändert werden, was den Mitarbeitern nicht umbedingt sofort aufallen muss Schadenspotiential ->kritisch
 				</li>
-				<li><br>
-				
+				<li>Unsere Mitarbeiter sind dazu angehalten bei der Eingabe von Daten in die Datenbank besondere Vorsicht walten zu lassen, auch wenn diese auch noch vom System validiert werden<br>
+					Ein falsch ausgefülltest Feld in der Datenbank wird im Normalfall schnell von einem Unser Mitarbeiter entdeckt und dann auch gemeldet, somit hält sich der Schaden 	in grenzen -> Normal
 				</li>
-				<li><br>
-				
+				<li>Aufgrund unserer Firewall ist ein erfolgreicher Hackerangriff unwarscheinlich<br>
+					Sollte dieser Tritzdem erfolgreich sein und es ihm gelingne Daten zu entwenden ist das für unseren  Firmenruf sehr schlecht. Schadenspotential ->kritisch
 				</li>
-				<li><br>
-				
+				<li>Unsere Mitarbeiter werdne geschult nur von vertrauenswürdigen Seiten herunterzuladen, außerdim ist unsere Firewall und Virenscanner auf den aktuellsten Stand, was es sehr unwarschinlich macht, dass ein Kriyptp Trojana heruntergeladne wird<br>
+					Sollte trotzdem ein Krypto-Trojanan installiert werden hat dies eimem erhebliche Auswirkungen auf unsere geschäftsprozesse ->kritisch
+				</li>
+				<li>Das die Hardware unsres Servers ausfällt ist unwarscheinlich, da wir diese Regelmäßig updaten<br>
+					Durch einen Hardware Ausfall kann die Personalabteilung eine Weile nicht Arbeiten. Dank unserer Backups auf einem Seperaten Server ist das Schadenspotential als Hoch einzuschätzen. 
 				</li>
 			</ol>
 			 <br /> <br /> <b>d)</b> <br /> <br />
-		<b>Kommunikation intern:</b> <br /> Alle Mitarbeiter sollen zur
+		<b>Kommunikation intern: (Risiko: )</b> <br /> Alle Mitarbeiter sollen zur
 		Kommunkation firmenintern einen hauseigenen,verschlüsselten VPN-Dienst
 		nutzen. Hierdurch wird die Echtheit (Authentizität) der Kommunikation,
 		bzw. der übertragenen Daten, sichergestellt. Außerdem kann die
 		Kommunikation der Mitarbeiter geloggt werden, was in Streitfällen als
-		Beweis genutzt werden kann. <br /> <b>Kommunikation extern:</b> <br />
+		Beweis genutzt werden kann. <br /> <b>Kommunikation extern: (Risiko: )</b> <br />
 		Zur Kommunikation bspw. mit dem www oder E-Mail soll der
 		Mozilla-Thunderbird Mail Client und der Mozilla Firefox Web Browser
 		mit entsprechenden Add-Ons (<a id="blatt3Link"
 			href="../3.Übung/Aufgabe3-Sicherheitserhoehende-Erweiterung.html">siehe
 			Übungsblatt 3 Aufgabe 3</a>) genutzt werden. <br /> Des Weiteren soll
-		eine Firewall installiert und konfiguriert sein.<br /> <b>Datenbank-System</b>
+		eine Firewall installiert und konfiguriert sein.<br /> <b>Datenbank-System (Risiko: )</b>
 		<br /> Als DBS soll Firebird zum Einsatz kommen, da dies als
 		open-source DBS vertrauenswürdiger als verbreitete DB-Systeme wie
 		Microsoft Access ist. Da in der DB Personaldaten gespeichert werden
 		ist ebenfalls auf den Zugriff zu achten. Daher soll nur verschlüsselt
 		mit der Datenbank kommuniziert werden dürfen. <br /> Zudem sollte
 		täglich ein Backup der DB angefertigt werden und das Backup
-		vervielfältigt werden. <br /> <b>Virenschutz</b> <br /> Als
+		vervielfältigt werden. <br /> <b>Virenschutz (Risiko: 5, 9)</b> <br /> Als
 		Virenschut soll auf den/dem Serversystem(en) selbst ClamAV installiert
 		werden. Am gateway soll auf ein geeignetes, von ClamAV verschiedenes,
 		Anti-Viren-Programm installiert werden. Dadurch minimieren wir das
@@ -213,14 +216,15 @@
 		Ebenfalls sollen alle Mitarbeiter dazu angehalten werden, aus dem
 		Internet heruntergeladenen Dateien mittels <a id="virusTotal"
 			href="http://www.virustotal.com">VirusTotal</a> zu überprüfen. <br />
-		<b>Schutz des Serverraums</b> <br /> Der Serverraum soll mit
+		<b>Schutz des Serverraums (Risiko: 1,2)</b> <br /> Der Serverraum soll mit
 		vernetzten Brandmeldern ausgestattet werden, die im Brandfall automatisch die Feuerwehr verständigen. Ebenfalls sollen beim Zutritt und beim
 		Verlassen des Serverraums die entsprechenden Personen gewogen werden,
 		damit diese nicht unbemerkt etwas in den Serverraum schmuggeln können. <br />
 		Ferner sollen, um sich gegen Einbrüche zu wehren, Bewegungsmelder und
 		Wärmebildkameras installiert werden. <br />
-		<b>Schulung der Mitarbeiter</b><br>
+		<b>Schulung der Mitarbeiter (Risiko: 5,6,7,9)</b><br>
 		Alle Mitarbeiter sollten über dem richtigen und dem vertraulichen Umgang mit Daten regelmäßig geschult werden.
+		<br>Zudem wird ihenen beigebracht Datenquellen aus dem Internet richtig einzuschätzen und dementsptechen als Vertauenvoll einzuschätzen und nur Dateien aus solchen Quellen Herunterzuladen.
 		<br>Dadurch wird der größe Risikifaktor Mensch eingedämmt, und es wird weniger warscheinlich, dass Daten verloren gehen. 
 		<br> <br /> <br />
 	</div>
